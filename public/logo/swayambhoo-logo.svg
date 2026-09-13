@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 100" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="logoGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5CD9E" />
+      <stop offset="50%" stop-color="#C5A059" />
+      <stop offset="100%" stop-color="#9A7730" />
+    </linearGradient>
+  </defs>
+
+  <!-- Left Emblem Icon -->
+  <g transform="translate(10, 6) scale(0.22)">
+    <circle cx="200" cy="200" r="190" fill="#14342B" stroke="url(#logoGold)" stroke-width="8"/>
+    <circle cx="200" cy="200" r="176" fill="none" stroke="url(#logoGold)" stroke-width="3" stroke-dasharray="8,6" opacity="0.7"/>
+    <path d="M 200 60 
+             C 215 110, 260 145, 260 215
+             C 260 270, 225 310, 180 310
+             C 135 310, 115 275, 120 240
+             C 123 215, 145 195, 170 200
+             C 190 204, 195 225, 188 238
+             C 183 247, 172 250, 163 245
+             C 158 242, 155 236, 156 230
+             C 157 220, 170 216, 175 226
+             C 177 232, 173 236, 170 236
+             C 150 236, 140 260, 165 275
+             C 195 290, 235 270, 235 215
+             C 235 160, 195 125, 185 85
+             Z" 
+          fill="url(#logoGold)" />
+  </g>
+
+  <!-- Brand Typography -->
+  <!-- Main Title -->
+  <text x="110" y="44" font-family="'Cinzel', 'Playfair Display', Georgia, serif" font-size="28" font-weight="700" letter-spacing="3" fill="#C5A059">
+    SWAYAMBHOO
+  </text>
+  <!-- Subtitle -->
+  <text x="112" y="66" font-family="'Inter', 'Outfit', sans-serif" font-size="13.5" font-weight="600" letter-spacing="4.5" fill="#E8DFC8">
+    INTERNATIONAL SCHOOL
+  </text>
+  <!-- Motto Line -->
+  <text x="113" y="84" font-family="'Inter', sans-serif" font-size="9" font-weight="500" letter-spacing="3.5" fill="#8FA38F">
+    LEARN • GROW • LEAD  |  ESTD 2024
+  </text>
+</svg>

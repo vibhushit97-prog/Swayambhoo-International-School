@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="sisGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DFC38A" />
+      <stop offset="50%" stop-color="#C5A059" />
+      <stop offset="100%" stop-color="#8C6A28" />
+    </linearGradient>
+    <linearGradient id="sisDarkGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E4D40" />
+      <stop offset="100%" stop-color="#0E241B" />
+    </linearGradient>
+    <filter id="goldShine" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <!-- Background Circle (Optional Accent / Emblem Container) -->
+  <circle cx="200" cy="200" r="190" fill="url(#sisDarkGlow)" stroke="url(#sisGoldGrad)" stroke-width="4"/>
+  <circle cx="200" cy="200" r="176" fill="none" stroke="url(#sisGoldGrad)" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.6"/>
+
+  <!-- Stylized Sacred Flame with Inner Spiral -->
+  <!-- Outer Flame Petal -->
+  <path d="M 200 60 
+           C 215 110, 260 145, 260 215
+           C 260 270, 225 310, 180 310
+           C 135 310, 115 275, 120 240
+           C 123 215, 145 195, 170 200
+           C 190 204, 195 225, 188 238
+           C 183 247, 172 250, 163 245
+           C 158 242, 155 236, 156 230
+           C 157 220, 170 216, 175 226
+           C 177 232, 173 236, 170 236
+           C 150 236, 140 260, 165 275
+           C 195 290, 235 270, 235 215
+           C 235 160, 195 125, 185 85
+           Z" 
+        fill="url(#sisGoldGrad)" 
+        filter="url(#goldShine)"/>
+
+  <!-- Inner Spark Accent -->
+  <path d="M 198 120 
+           C 215 160, 220 200, 205 230
+           C 200 240, 190 248, 180 245
+           C 170 242, 165 230, 172 220
+           C 180 208, 192 180, 198 120 Z" 
+        fill="#FFFFFF" 
+        opacity="0.35"/>
+</svg>

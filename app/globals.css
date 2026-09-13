@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+@layer theme {
+  :root {
+    --primary-forest: #14342B;
+    --primary-forest-dark: #0E241B;
+    --primary-forest-deep: #081611;
+    --primary-forest-light: #1E4D40;
+    --primary-forest-muted: #276252;
+    
+    --accent-gold: #C5A059;
+    --accent-gold-dark: #9C7A33;
+    --accent-gold-light: #DDC289;
+    --accent-gold-subtle: #F8F3E8;
+
+    --bg-ivory: #FDFBF7;
+    --bg-ivory-warm: #FAF6EE;
+    --bg-beige: #F5EFEB;
+    --bg-beige-dark: #EAE2D5;
+
+    --neutral-charcoal: #181C20;
+    --neutral-charcoal-dark: #111418;
+    --neutral-charcoal-light: #282E36;
+    --neutral-gray: #64748B;
+    --neutral-border: #E2DBD0;
+
+    --brand-sage: #8FA38F;
+    --brand-sage-light: #DCE5DC;
+    --brand-sage-dark: #4A634A;
+
+    --uniform-brown: #4A2E1B;
+    --uniform-brown-dark: #362113;
+    --natural-wood: #8A6844;
+  }
+}
+
+@theme {
+  --color-forest-950: #081611;
+  --color-forest-900: #0E241B;
+  --color-forest-800: #14342B;
+  --color-forest-700: #1B4438;
+  --color-forest-600: #255D4E;
+  --color-forest-500: #337A68;
+
+  --color-gold-700: #856627;
+  --color-gold-600: #A27F35;
+  --color-gold-500: #C5A059;
+  --color-gold-400: #D8B877;
+  --color-gold-300: #E8CF9C;
+  --color-gold-100: #F8F3E8;
+  --color-gold-50: #FCFAF5;
+
+  --color-ivory: #FDFBF7;
+  --color-ivory-warm: #FAF6EE;
+  --color-beige: #F5EFEB;
+  --color-beige-dark: #EAE2D5;
+
+  --color-charcoal-950: #0B0D0F;
+  --color-charcoal-900: #111418;
+  --color-charcoal-800: #181C20;
+  --color-charcoal-700: #282E36;
+  --color-charcoal-600: #3E4652;
+  --color-charcoal-500: #57606E;
+  --color-charcoal-400: #717D8F;
+
+  --color-sage: #8FA38F;
+  --color-sage-light: #DCE5DC;
+  --color-sage-dark: #4A634A;
+
+  --color-uniform-brown: #4A2E1B;
+  --color-uniform-brown-dark: #362113;
+  --color-wood: #8A6844;
+
+  --font-serif: var(--font-cinzel), 'Playfair Display', Georgia, serif;
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  background-color: var(--bg-ivory);
+  color: var(--neutral-charcoal);
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #FDFBF7;
+  color: #181C20;
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Headings */
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
+}
+
+/* Custom Architectural Details */
+.architectural-border {
+  border: 1px solid #E2DBD0;
+  box-shadow: 0 1px 3px rgba(20, 52, 43, 0.04), 0 4px 12px rgba(20, 52, 43, 0.03);
+}
+
+.architectural-card {
+  background: #FFFFFF;
+  border: 1px solid #EAE3D7;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.architectural-card:hover {
+  border-color: #C5A059;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -6px rgba(20, 52, 43, 0.09);
+}
+
+/* Forest Hero Backdrop & Accents */
+.bg-forest-pattern {
+  background-color: #14342B;
+  background-image: radial-gradient(rgba(197, 160, 89, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Subtle Gold Divider */
+.gold-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #C5A059, transparent);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F5EFEB;
+}
+::-webkit-scrollbar-thumb {
+  background: #C5A059;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A27F35;
+}
+
+/* Focus States for Accessibility */
+:focus-visible {
+  outline: 2px solid #C5A059;
+  outline-offset: 2px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
