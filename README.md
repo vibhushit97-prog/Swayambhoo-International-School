@@ -1,6 +1,6 @@
-# Swayambhoo International School — Phase 1 Website
+# Swayambhoo International School — Phase 2 Platform
 
-A production-ready, accessible, biophilic educational institution website built for **Swayambhoo International School**, Wazirganj, Gaya, Bihar – 805131, India.
+A production-ready, accessible, biophilic educational institution website and Content Management Platform built for **Swayambhoo International School**, Wazirganj, Gaya, Bihar – 805131, India.
 
 ---
 
@@ -16,7 +16,7 @@ A production-ready, accessible, biophilic educational institution website built 
 
 ---
 
-## 🎨 Design System & Visual Identity
+## 🎨 Visual Identity & Architecture
 Derived from neoclassical architectural rendering and official uniform specifications:
 - **Primary**: Deep Forest Green (`#14342B` / `#0E241B`)
 - **Canvas / Secondary**: Warm Ivory (`#FDFBF7`) & Warm Beige (`#F5EFEB`)
@@ -24,168 +24,123 @@ Derived from neoclassical architectural rendering and official uniform specifica
 - **Uniform Chocolate Brown**: (`#4A2E1B`)
 - **Soft Sage**: (`#8FA38F`)
 - **Typography**: Editorial Classical Headings (Cinzel / Playfair Display) paired with high-legibility sans-serif body (Inter)
-- **Aesthetic Principles**: Neoclassical symmetry, biophilic warmth, natural wood, minimal geometric borders, no gratuitous SaaS rounded bubbles.
+- **Aesthetic Principles**: Neoclassical symmetry, biophilic warmth, natural wood, minimal geometric borders.
 
 ---
 
-## 📂 Exact Project Structure
-```text
-swayambhoo-international-school/
-├── app/
-│   ├── layout.tsx                # Root layout with fonts, StructuredData, Navbar, Footer
-│   ├── page.tsx                  # Full-featured 14-section homepage
-│   ├── globals.css               # Design tokens, typography, architectural borders
-│   ├── about/page.tsx            # School vision, mission, ethos, campus wings
-│   ├── academics/page.tsx        # School stages (Nursery to Grade 10) & +2 streams
-│   ├── campus/page.tsx           # Neoclassical architecture & biophilic quads
-│   ├── facilities/page.tsx       # 6 core facilities with deep architectural detail
-│   ├── student-life/page.tsx     # Official Uniform standards & 4 House systems
-│   ├── admissions/page.tsx       # 4-step admission guide & interactive enquiry form
-│   ├── gallery/page.tsx          # Filterable 9-asset gallery with image lightbox
-│   ├── contact/page.tsx          # Geolocation directions, map, direct message form
-│   ├── privacy/page.tsx          # Comprehensive student & parent privacy policy
-│   ├── terms/page.tsx            # Institutional terms of use & legal framework
-│   ├── not-found.tsx             # Custom 404 handler
-│   ├── error.tsx                 # Error boundary
-│   ├── sitemap.ts                # Automated XML sitemap generator
-│   ├── robots.ts                 # Robots.txt configuration
-│   └── api/
-│       └── enquiries/
-│           └── route.ts          # Zod validation + PostgreSQL / safe dev fallback
-│
-├── components/
-│   ├── layout/
-│   │   ├── Navbar.tsx            # Sticky header with transparent-to-solid transition
-│   │   ├── MobileNav.tsx         # Accessible mobile drawer with WhatsApp CTA
-│   │   ├── Footer.tsx            # Institutional footer with transparency notice
-│   │   └── FloatingWhatsApp.tsx  # Sticky bottom-right WhatsApp quick-chat desk
-│   ├── home/
-│   │   ├── Hero.tsx              # Cinematic hero with official campus visual
-│   │   ├── SchoolIntroduction.tsx# Heritage, Sanskrit root & campus wings
-│   │   ├── WhySwayambhoo.tsx     # 6 institutional pillars
-│   │   ├── AcademicOverview.tsx  # K–12 stages overview
-│   │   ├── SmartClassrooms.tsx   # Studio classrooms showcase
-│   │   ├── STEMSection.tsx       # Robotics, coding & 3D prototyping
-│   │   ├── CampusArchitecture.tsx# Neoclassical facade & shaded walks
-│   │   ├── SportsSection.tsx     # Maple wood indoor arena
-│   │   ├── LibrarySection.tsx    # Sensory reading pods & amphitheater
-│   │   ├── StudentLifeSection.tsx# Boys & girls uniform standards
-│   │   ├── SafetySection.tsx     # CCTV, GPS fleet & medical infirmary
-│   │   ├── SustainabilitySection.tsx# Solar, rainwater & native flora
-│   │   ├── AdmissionsCTA.tsx     # Dual WhatsApp & Form CTA
-│   │   └── LocationSection.tsx   # Wazirganj NH-82 transit details
-│   ├── academics/
-│   │   ├── AcademicCard.tsx      # Individual stage card
-│   │   ├── SchoolStage.tsx       # Stage grid wrapper
-│   │   └── SeniorSecondary.tsx   # Science, Commerce, Humanities streams
-│   ├── facilities/
-│   │   ├── FacilityCard.tsx      # Facility overview card
-│   │   ├── FacilityGrid.tsx      # Grid presentation
-│   │   └── FacilityDetail.tsx    # Split media-copy detail section
-│   ├── gallery/
-│   │   ├── GalleryGrid.tsx       # Filterable grid
-│   │   ├── GalleryFilter.tsx     # Category pill filters
-│   │   └── ImageLightbox.tsx     # Keyboard-navigable HD modal lightbox
-│   ├── admissions/
-│   │   ├── AdmissionForm.tsx     # React Hook Form + Zod admission flow
-│   │   └── AdmissionCTA.tsx      # Reusable admission CTA
-│   ├── contact/
-│   │   ├── ContactCard.tsx       # Address, phone, WhatsApp, hours
-│   │   ├── ContactForm.tsx       # Direct message sender
-│   │   └── MapPlaceholder.tsx    # Geolocation route helper
-│   ├── ui/
-│   │   ├── Button.tsx            # Architectural button variants (gold, primary, etc.)
-│   │   ├── Container.tsx         # Responsive container
-│   │   ├── SectionHeading.tsx    # Serif heading with gold accent divider
-│   │   ├── Badge.tsx             # Categorical and status badges
-│   │   ├── Card.tsx              # Architectural cards
-│   │   └── AnimatedReveal.tsx    # Native IntersectionObserver scroll reveal
-│   └── seo/
-│       └── StructuredData.tsx    # Google Schema.org School JSON-LD
-│
-├── lib/
-│   ├── constants.ts              # Classes, sessions, house systems, gallery tags
-│   ├── utils.ts                  # Class merger and date helpers
-│   ├── validations.ts            # Zod validation schemas for forms
-│   ├── metadata.ts               # OpenGraph, Twitter and Canonical metadata
-│   └── whatsapp.ts               # Centralized WhatsApp click-to-chat generator
-│
-├── config/
-│   └── site.ts                   # Centralized school configuration & image map
-│
-├── types/
-│   ├── school.ts                 # Stages & pillars types
-│   ├── facility.ts               # Facility domain types
-│   ├── gallery.ts                # Gallery item & lightbox types
-│   └── enquiry.ts                # Admission CRM enquiry types
-│
-├── prisma/
-│   └── schema.prisma             # PostgreSQL schema ready for Phase 1 & 2
-│
-├── scripts/
-│   └── seed.ts                   # Safe demonstration seed script
-│
-├── public/
-│   ├── images/
-│   │   ├── campus/               # swayambhoo-main-campus.jpg, campus-courtyard.jpg
-│   │   ├── hero/                 # swayambhoo-hero-facade.jpg
-│   │   ├── classrooms/           # smart-classroom.jpg
-│   │   ├── labs/                 # stem-robotics.jpg
-│   │   ├── library/              # school-library.jpg
-│   │   ├── sports/               # sports-complex.jpg
-│   │   ├── dining/               # dining-hall.jpg
-│   │   ├── safety/               # campus-security.jpg
-│   │   ├── student-life/         # student-activities.jpg
-│   │   └── uniforms/             # boys-uniform.jpg, girls-uniform.jpg
-│   ├── logo/
-│   │   ├── swayambhoo-logo.svg   # Full horizontal logo with serif typography
-│   │   └── swayambhoo-emblem.svg # Golden sacred flame spiral emblem
-│   └── icons/
-│
-├── .env.example                  # Environment configuration template
-├── package.json
-├── tsconfig.json
-├── next.config.ts
-└── README.md
+## 🛡️ Phase 2 Administration & CMS Architecture
+
+The platform includes an administration portal and Content Management System running at `/admin`:
+
+### Protected Admin Routes:
+- `/admin/login` — Classical login portal with brute-force rate-limiting and timing-safe password verification
+- `/admin/dashboard` — Overview metrics (6 KPI cards) and live Admissions intake table
+- `/admin/admissions` — Full CRM with status triage (NEW, CONTACTED, FOLLOW_UP, CONVERTED, CLOSED), notes editor, filters, and CSV export
+- `/admin/messages` — Contact message inbox with read/replied status management
+- `/admin/school-profile` — Centralized institution metadata CMS (name, tagline, contacts, address, branding images)
+- `/admin/academics` — Academic stages and toggleable Senior Secondary (+2) streams (Science, Commerce, Humanities)
+- `/admin/facilities` — Campus facilities manager with dynamic features lists and photo uploads
+- `/admin/gallery` — Multi-category gallery manager with sort order adjustment and media uploader
+- `/admin/announcements` — School news and circulars publisher (Draft, Published, Archived)
+- `/admin/events` — Academic calendar and campus event scheduler
+- `/admin/settings` — Global system parameters (admissions season status, notification ticker toggle)
+
+---
+
+## 🗄️ Database & Prisma Schema
+
+PostgreSQL database backed by Prisma ORM 7 with `@prisma/adapter-pg`.
+
+### Models:
+1. `User` — Role-based admin accounts (`SUPER_ADMIN`, `ADMIN`, `EDITOR`) with `scrypt` salted password hashes
+2. `SchoolProfile` — Singleton central school configuration
+3. `AcademicStage` & `AcademicStream` — K–12 stages and configurable +2 streams
+4. `Facility` — Campus facilities with category and feature lists
+5. `GalleryCategory` & `GalleryImage` — Photographic media records with sort order
+6. `Announcement` — Public circulars and news items
+7. `Event` — School calendar events with dates and venues
+8. `AdmissionEnquiry` — Prospective student CRM applications
+9. `ContactMessage` — General public feedback and inquiries
+10. `SiteSetting` — Key-value system parameters
+11. `MediaAsset` — Tracked file storage records
+
+---
+
+## 🔐 Environment Variables
+
+Create `.env` based on `.env.example`:
+
+```env
+# Application URL
+NEXT_PUBLIC_SITE_URL="http://localhost:3005"
+
+# Contact Details
+NEXT_PUBLIC_WHATSAPP_NUMBER="91966148541"
+NEXT_PUBLIC_SCHOOL_PHONE="+91 92412 18844"
+NEXT_PUBLIC_SCHOOL_EMAIL="admissions@swayambhooschool.com"
+
+# PostgreSQL Database (Prisma 7)
+DATABASE_URL="postgresql://postgres:password@localhost:5432/swayambhoo_school?schema=public"
+
+# Auth Session Secret
+AUTH_SECRET="your-32-character-random-secret-key"
+
+# Initial Super Admin Initialization (via seed)
+ADMIN_INITIAL_NAME="Head Administrator"
+ADMIN_INITIAL_EMAIL="admin@swayambhooschool.com"
+ADMIN_INITIAL_PASSWORD="YourSecureAdminPassword123!"
+
+# Media Storage Provider
+STORAGE_PROVIDER="local"
+STORAGE_LOCAL_DIR="public/uploads"
 ```
 
 ---
 
-## 🚀 Running Locally
+## 🚀 Commands & Deployment
 
 ```bash
 # 1. Install dependencies
 npm install
 
-# 2. Run local development server
+# 2. Push Prisma schema to PostgreSQL database
+npm run db:push
+
+# 3. Seed foundation demonstration content & super-admin user
+npx tsx scripts/seed.ts
+
+# 4. Run local development server
 npm run dev
 
-# 3. Build for production
+# 5. Typecheck & build for production
+npx tsc --noEmit
 npm run build
 
-# 4. Start production server
+# 6. Start production server
 npm run start
 ```
 
 ---
 
-## 🗄️ Database & PostgreSQL Setup
-The application is pre-configured with Prisma ORM:
-- When `DATABASE_URL` is set, `POST /api/enquiries` inserts directly into the `AdmissionEnquiry` table in PostgreSQL.
-- When `DATABASE_URL` is absent (Phase 1 development), the API safely falls back to a formatted development handler with a unique reference ID and timestamp.
+## 📸 Media Storage Abstraction
 
-To run migrations and seed when PostgreSQL is available:
-```bash
-npx prisma db push
-npx tsx scripts/seed.ts
-```
+The storage layer (`lib/storage/index.ts`) abstracts file uploads:
+- **Default (Local)**: Saves images to `public/uploads/<folder>/` with unique random hashes, validated for file size (max 5MB) and MIME types (JPEG, PNG, WebP, SVG).
+- **Future-Ready Cloud Providers**: Pluggable driver structure ready for AWS S3, Cloudflare R2, or Vercel Blob by configuring `STORAGE_PROVIDER`.
 
 ---
 
-## 📱 WhatsApp Centralization
-All WhatsApp interactions route through `lib/whatsapp.ts` with phone number `+91 96614 48541` and contextual query strings for admissions, campus tours, or general queries.
+## 🔒 Security Measures
+
+- **Passwords**: Hashed with Node.js native `crypto.scrypt` with random 16-byte salts and timing-safe equality checks.
+- **Sessions**: Tamper-proof HMAC-SHA256 signed tokens stored in `httpOnly`, `sameSite: lax`, `path: /` cookies.
+- **Route Guards**: Next.js Edge-compatible middleware protecting all `/admin/*` pages and `/api/admin/*` endpoints.
+- **Brute Force Protection**: Sliding-window IP rate limiter on `/api/auth/login`.
+- **Validation**: Strict schema validation on all inputs and API submissions via Zod.
+- **Security Headers**: Injected via middleware (`X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`).
 
 ---
 
-## 🔒 Image Safety & Academic Accuracy
-All architectural imagery features clear &ldquo;Architectural Visualization • Proposed Concept&rdquo; disclosures. The website makes no unverified claims regarding board affiliations, awards, or rankings.
+## 📄 License & Attribution
+
+© 2024–2026 Swayambhoo International School. All rights reserved.

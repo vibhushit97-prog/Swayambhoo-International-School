@@ -33,6 +33,10 @@ export function Navbar() {
 
   const transparentNavbar = isHomePage && !isScrolled;
 
+  if (pathname.startsWith("/admin")) {
+    return null;
+  }
+
   return (
     <>
       {/* Pre-header Top Bar */}

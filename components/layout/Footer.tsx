@@ -1,11 +1,19 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { siteConfig } from "@/config/site";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
-import { MapPin, Phone, Mail, MessageCircle, ArrowRight, ShieldCheck } from "lucide-react";
+import { MapPin, Phone, Mail, MessageCircle, ArrowRight, ShieldCheck, Lock } from "lucide-react";
 
 export function Footer() {
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/admin")) {
+    return null;
+  }
   return (
     <footer className="bg-[#0E241B] text-[#FDFBF7] border-t-2 border-[#C5A059]">
       {/* Top Banner with Motto */}
@@ -219,6 +227,13 @@ export function Footer() {
             </Link>
             <Link href="/contact" className="hover:text-white transition-colors">
               Campus Map
+            </Link>
+            <Link
+              href="/admin/login"
+              className="hover:text-[#C5A059] transition-colors flex items-center gap-1 font-medium"
+            >
+              <Lock className="w-3 h-3 text-[#C5A059]" />
+              <span>Admin Portal</span>
             </Link>
           </div>
         </div>

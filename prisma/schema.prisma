@@ -1,5 +1,5 @@
 // Prisma schema for Swayambhoo International School
-// Ready for Phase 1 and Phase 2 CMS + Administration
+// Phase 2: CMS + Database + Administration
 
 generator client {
   provider = "prisma-client-js"
@@ -7,7 +7,6 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
 enum Role {
@@ -37,7 +36,7 @@ enum PublishStatus {
   ARCHIVED
 }
 
-// Admin Users (Phase 2)
+// Admin Users
 model User {
   id        String   @id @default(cuid())
   email     String   @unique
@@ -50,38 +49,61 @@ model User {
 
 // Central School Profile
 model SchoolProfile {
-  id              String   @id @default(cuid())
-  name            String   @default("Swayambhoo International School")
-  tagline         String   @default("LEARN. EXPLORE. CREATE. LEAD.")
-  motto           String   @default("LEARN • GROW • LEAD")
-  description     String
-  addressStreet   String
-  addressLocality String   @default("Wazirganj")
-  addressCity     String   @default("Gaya")
-  addressState    String   @default("Bihar")
-  addressPincode  String   @default("805131")
-  phone           String   @default("+91 92412 18844")
-  whatsapp        String   @default("+91 96614 48541")
-  email           String   @default("info@swayambhooschool.com")
-  logoUrl         String   @default("/logo/swayambhoo-logo.svg")
-  heroImageUrl    String   @default("/images/hero/swayambhoo-hero-facade.jpg")
-  updatedAt       DateTime @updatedAt
+  id                   String   @id @default("school-profile-main")
+  name                 String   @default("Swayambhoo International School")
+  tagline              String   @default("LEARN. EXPLORE. CREATE. LEAD.")
+  motto                String   @default("LEARN • GROW • LEAD")
+  campusMotto          String   @default("Discipline Today, Leadership Tomorrow")
+  description          String
+  addressStreet        String
+  addressLocality      String   @default("Wazirganj")
+  addressCity          String   @default("Gaya")
+  addressState         String   @default("Bihar")
+  addressPincode       String   @default("805131")
+  phone                String   @default("+91 92412 18844")
+  whatsapp             String   @default("+91 96614 48541")
+  email                String   @default("info@swayambhooschool.com")
+  admissionsEmail      String   @default("admissions@swayambhooschool.com")
+  logoUrl              String   @default("/logo/swayambhoo-logo.svg")
+  heroImageUrl         String   @default("/images/hero/swayambhoo-hero-facade.jpg")
+  socialLinks          Json?
+  admissionCtaTitle    String   @default("Admissions Open for Academic Session 2026–2027")
+  admissionCtaSubtitle String   @default("Secure your child's future at Gaya's premier educational campus.")
+  footerText           String   @default("Empowering students through academic distinction, modern technology, and values-driven character building.")
+  updatedAt            DateTime @updatedAt
 }
 
 // Academic Stages & Programs
-model AcademicProgram {
-  id          String        @id @default(cuid())
-  slug        String        @unique
-  title       String
-  stage       String
-  classes     String
-  ageRange    String
-  description String
-  imageUrl    String?
-  displayOrder Int          @default(0)
-  status      PublishStatus @default(PUBLISHED)
-  createdAt   DateTime      @default(now())
-  updatedAt   DateTime      @updatedAt
+model AcademicStage {
+  id           String           @id @default(cuid())
+  slug         String           @unique
+  title        String
+  classes      String
+  ageRange     String
+  description  String
+  imageUrl     String?
+  displayOrder Int              @default(0)
+  status       PublishStatus    @default(PUBLISHED)
+  streams      AcademicStream[]
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+}
+
+// Configurable Streams (e.g. for Senior Secondary)
+model AcademicStream {
+  id           String        @id @default(cuid())
+  stageId      String
+  stage        AcademicStage @relation(fields: [stageId], references: [id], onDelete: Cascade)
+  name         String
+  slug         String
+  description  String
+  subjects     String[]
+  isOffered    Boolean       @default(false)
+  displayOrder Int           @default(0)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  @@unique([stageId, slug])
 }
 
 // School Facilities
@@ -107,43 +129,46 @@ model GalleryCategory {
   name        String         @unique
   slug        String         @unique
   description String?
+  sortOrder   Int            @default(0)
   images      GalleryImage[]
   createdAt   DateTime       @default(now())
 }
 
 model GalleryImage {
-  id          String          @id @default(cuid())
+  id          String           @id @default(cuid())
   title       String
   description String?
   altText     String
   imageUrl    String
+  storageKey  String?
   categoryId  String?
-  category    GalleryCategory? @relation(fields: [categoryId], references: [id])
-  isConcept   Boolean         @default(true)
-  sortOrder   Int             @default(0)
-  status      PublishStatus   @default(PUBLISHED)
-  createdAt   DateTime        @default(now())
-  updatedAt   DateTime        @updatedAt
+  category    GalleryCategory? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  isConcept   Boolean          @default(false)
+  sortOrder   Int              @default(0)
+  status      PublishStatus    @default(PUBLISHED)
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
 }
 
 // Announcements & News
 model Announcement {
-  id          String        @id @default(cuid())
-  title       String
-  slug        String        @unique
-  summary     String
-  content     String
-  imageUrl    String?
-  status      PublishStatus @default(PUBLISHED)
-  publishedAt DateTime      @default(now())
-  createdAt   DateTime      @default(now())
-  updatedAt   DateTime      @updatedAt
+  id            String        @id @default(cuid())
+  title         String
+  slug          String        @unique
+  summary       String
+  content       String
+  featuredImage String?
+  status        PublishStatus @default(PUBLISHED)
+  publishDate   DateTime      @default(now())
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
 }
 
 // Events Calendar
 model Event {
   id          String        @id @default(cuid())
   title       String
+  slug        String        @unique
   description String
   startDate   DateTime
   endDate     DateTime?
@@ -154,7 +179,7 @@ model Event {
   updatedAt   DateTime      @updatedAt
 }
 
-// Phase 1 & 2 Admissions Enquiries CRM
+// Phase 2 Admissions Enquiries CRM
 model AdmissionEnquiry {
   id              String        @id @default(cuid())
   studentName     String
@@ -167,7 +192,7 @@ model AdmissionEnquiry {
   academicSession String
   message         String?
   status          EnquiryStatus @default(NEW)
-  adminNotes      String?
+  notes           String?
   createdAt       DateTime      @default(now())
   updatedAt       DateTime      @updatedAt
 }
@@ -181,6 +206,29 @@ model ContactMessage {
   subject   String
   message   String
   status    MessageStatus @default(UNREAD)
+  notes     String?
   createdAt DateTime      @default(now())
   updatedAt DateTime      @updatedAt
+}
+
+// Site Settings
+model SiteSetting {
+  id          String   @id @default(cuid())
+  key         String   @unique
+  value       String
+  description String?
+  updatedAt   DateTime @updatedAt
+}
+
+// Media Assets (Object Storage Tracking)
+model MediaAsset {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  filename  String
+  url       String
+  mimeType  String
+  size      Int
+  provider  String   @default("local")
+  altText   String?
+  createdAt DateTime @default(now())
 }

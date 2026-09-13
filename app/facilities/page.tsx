@@ -7,6 +7,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FacilityDetail } from "@/components/facilities/FacilityDetail";
 import { AdmissionsCTA } from "@/components/home/AdmissionsCTA";
 import { Facility } from "@/types/facility";
+import { getPublishedFacilities } from "@/lib/data/school";
 
 export const metadata = constructMetadata({
   title: "School Facilities | Smart Classrooms, Robotics Labs & Sports",
@@ -120,7 +121,24 @@ const FACILITIES_DATA: Facility[] = [
   },
 ];
 
-export default function FacilitiesPage() {
+export default async function FacilitiesPage() {
+  const dbFacilities = await getPublishedFacilities();
+
+  const facilities: Facility[] =
+    dbFacilities && dbFacilities.length > 0
+      ? dbFacilities.map((f) => ({
+          id: f.id,
+          slug: f.slug,
+          name: f.name,
+          tagline: f.tagline,
+          category: (f.category.toLowerCase() as Facility["category"]) || "campus",
+          description: f.description,
+          image: f.imageUrl,
+          features: f.features,
+          isConceptual: false,
+        }))
+      : FACILITIES_DATA;
+
   return (
     <div className="bg-[#FDFBF7]">
       {/* Hero Header */}
@@ -154,7 +172,7 @@ export default function FacilitiesPage() {
           />
 
           <div className="space-y-8">
-            {FACILITIES_DATA.map((facility, index) => (
+            {facilities.map((facility, index) => (
               <FacilityDetail
                 key={facility.id}
                 facility={facility}

@@ -8,6 +8,7 @@ import { GalleryGrid } from "@/components/gallery/GalleryGrid";
 import { AdmissionsCTA } from "@/components/home/AdmissionsCTA";
 import { GalleryItem } from "@/types/gallery";
 import { ShieldCheck } from "lucide-react";
+import { getPublishedGallery } from "@/lib/data/school";
 
 export const metadata = constructMetadata({
   title: "Campus Gallery & Architectural Visualizations",
@@ -16,7 +17,7 @@ export const metadata = constructMetadata({
   path: "/gallery",
 });
 
-const GALLERY_ITEMS: GalleryItem[] = [
+const STATIC_GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "campus-facade",
     title: "Neoclassical Main Campus Facade & Entrance Gate",
@@ -118,7 +119,29 @@ const GALLERY_ITEMS: GalleryItem[] = [
   },
 ];
 
-export default function GalleryPage() {
+export default async function GalleryPage() {
+  const dbCategories = await getPublishedGallery();
+
+  const dynamicItems: GalleryItem[] = [];
+  if (dbCategories && dbCategories.length > 0) {
+    dbCategories.forEach((cat) => {
+      cat.images.forEach((img) => {
+        dynamicItems.push({
+          id: img.id,
+          title: img.title,
+          category: (cat.slug as GalleryItem["category"]) || "architecture",
+          categoryLabel: cat.name,
+          description: img.description || img.altText,
+          src: img.imageUrl,
+          alt: img.altText,
+          isConceptual: img.isConcept,
+        });
+      });
+    });
+  }
+
+  const items = dynamicItems.length > 0 ? dynamicItems : STATIC_GALLERY_ITEMS;
+
   return (
     <div className="bg-[#FDFBF7]">
       {/* Hero Header */}
@@ -151,7 +174,7 @@ export default function GalleryPage() {
             description="Click on any image to inspect in high-definition lightbox view with detailed captions and spatial notes."
           />
 
-          <GalleryGrid initialItems={GALLERY_ITEMS} />
+          <GalleryGrid initialItems={items} />
 
           {/* Conceptual Transparency Banner */}
           <div className="mt-16 p-5 bg-white border border-[#E2DBD0] flex items-center gap-3 max-w-2xl mx-auto">

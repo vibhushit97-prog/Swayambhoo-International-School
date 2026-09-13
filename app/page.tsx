@@ -1,5 +1,6 @@
 import React from "react";
 import { constructMetadata } from "@/lib/metadata";
+import { AnnouncementsTicker } from "@/components/home/AnnouncementsTicker";
 import { Hero } from "@/components/home/Hero";
 import { SchoolIntroduction } from "@/components/home/SchoolIntroduction";
 import { WhySwayambhoo } from "@/components/home/WhySwayambhoo";
@@ -12,6 +13,7 @@ import { LibrarySection } from "@/components/home/LibrarySection";
 import { StudentLifeSection } from "@/components/home/StudentLifeSection";
 import { SafetySection } from "@/components/home/SafetySection";
 import { SustainabilitySection } from "@/components/home/SustainabilitySection";
+import { UpcomingEventsSection } from "@/components/home/UpcomingEventsSection";
 import { AdmissionsCTA } from "@/components/home/AdmissionsCTA";
 import { LocationSection } from "@/components/home/LocationSection";
 
@@ -25,6 +27,7 @@ export const metadata = constructMetadata({
 export default function HomePage() {
   return (
     <>
+      <AnnouncementsTicker />
       <Hero />
       <SchoolIntroduction />
       <WhySwayambhoo />
@@ -37,6 +40,7 @@ export default function HomePage() {
       <StudentLifeSection />
       <SafetySection />
       <SustainabilitySection />
+      <UpcomingEventsSection />
       <AdmissionsCTA />
       <LocationSection />
     </>

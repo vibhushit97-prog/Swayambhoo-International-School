@@ -27,14 +27,28 @@ export function ContactForm() {
     },
   });
 
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
   const onSubmit = async (data: ContactMessageFormData) => {
     setIsSubmitting(true);
-    // Simulate safe delivery in Phase 1
-    await new Promise((resolve) => setTimeout(resolve, 800));
-    console.info("[Contact Message Logged]:", data);
-    setIsSubmitting(false);
-    setSuccessMessage(true);
-    reset();
+    setSubmitError(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json();
+      if (!res.ok || !result.success) {
+        throw new Error(result.message || "Failed to deliver message.");
+      }
+      setSuccessMessage(true);
+      reset();
+    } catch (err) {
+      setSubmitError(err instanceof Error ? err.message : "Error submitting message.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (successMessage) {
@@ -66,6 +80,13 @@ export function ContactForm() {
           Have an administrative query, partnership question, or feedback? Drop us a note below.
         </p>
       </div>
+
+      {submitError && (
+        <div className="mb-4 p-3 bg-red-50 border border-red-200 text-red-700 text-xs flex items-center gap-2">
+          <AlertCircle className="w-4 h-4 flex-shrink-0 text-red-600" />
+          <span>{submitError}</span>
+        </div>
+      )}
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
         <div>
