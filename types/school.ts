@@ -6,6 +6,13 @@ export interface SchoolStageInfo {
   description: string;
   highlights?: string[];
   image?: string;
+  nepFocus?: string;
+  curriculumOverview?: string;
+  coreSubjects?: string[];
+  keyCompetencies?: string[];
+  teachingMethodology?: string[];
+  facultyRatio?: string;
+  defaultApplyingFor?: string;
 }
 
 export interface PillarItem {

@@ -17,10 +17,10 @@ export function FloatingWhatsApp() {
     <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-2 group">
       {/* Expanded Quick Message Bubble */}
       {isOpen && (
-        <div className="bg-white p-4 shadow-xl border border-[#E2DBD0] max-w-xs w-72 mb-1 animate-in fade-in slide-in-from-bottom-2 duration-200">
-          <div className="flex items-start justify-between gap-2 pb-2 border-b border-[#E2DBD0]">
+        <div className="bg-[#FBF9F2] p-4 shadow-xl border border-[#DEDCCF] max-w-xs w-72 mb-1 animate-in fade-in slide-in-from-bottom-2 duration-200">
+          <div className="flex items-start justify-between gap-2 pb-2 border-b border-[#DEDCCF]">
             <div>
-              <p className="font-serif font-bold text-sm text-[#14342B]">
+              <p className="font-serif font-bold text-sm text-[#0F4735]">
                 Swayambhoo Admissions
               </p>
               <p className="text-[11px] text-[#25D366] font-medium flex items-center gap-1">
@@ -30,14 +30,14 @@ export function FloatingWhatsApp() {
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="text-[#64748B] hover:text-[#14342B] p-0.5"
+              className="text-[#66716A] hover:text-[#0F4735] p-0.5"
               aria-label="Close message"
             >
               <X className="w-4 h-4" />
             </button>
           </div>
 
-          <p className="text-xs text-[#181C20]/80 py-2.5 leading-relaxed">
+          <p className="text-xs text-[#26332E]/80 py-2.5 leading-relaxed">
             Welcome to Swayambhoo International School, Gaya. Have questions regarding classes, admissions, or campus visits?
           </p>
 
@@ -56,7 +56,7 @@ export function FloatingWhatsApp() {
       {/* Main Floating Trigger Button */}
       <div className="flex items-center gap-2">
         {!isOpen && (
-          <span className="hidden sm:inline-flex items-center px-3 py-1 bg-[#14342B] text-[#C5A059] text-xs font-semibold uppercase tracking-wider border border-[#C5A059]/40 shadow-md">
+          <span className="hidden sm:inline-flex items-center px-3 py-1 bg-[#083526] text-[#D4B15A] text-xs font-semibold uppercase tracking-wider border border-[#B88A2A]/40 shadow-md">
             Admissions Desk
           </span>
         )}
@@ -68,7 +68,7 @@ export function FloatingWhatsApp() {
         >
           <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
-            <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-[#C5A059]" />
+            <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-[#B88A2A]" />
           </span>
           <MessageCircle className="w-7 h-7" />
         </button>

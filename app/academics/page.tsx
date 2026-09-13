@@ -18,22 +18,22 @@ export const metadata = constructMetadata({
 
 export default function AcademicsPage() {
   return (
-    <div className="bg-[#FDFBF7]">
+    <div className="bg-[#F7F3E8]">
       {/* Hero Header */}
-      <section className="bg-[#081611] text-[#FDFBF7] py-20 lg:py-24 relative overflow-hidden border-b-2 border-[#C5A059]">
+      <section className="bg-[#083526] text-[#F7F3E8] py-20 lg:py-24 relative overflow-hidden border-b-2 border-[#B88A2A]">
         <Container className="relative z-10">
           <div className="max-w-3xl space-y-4">
-            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#C5A059]">
+            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#D4B15A] font-bold">
               <Link href="/" className="hover:underline">Home</Link>
               <span>/</span>
               <span>Academics</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-[#FFFFFF]">
               Academic Framework & Curricular Excellence
             </h1>
 
-            <p className="text-base sm:text-lg text-[#E8DFC8]/90 font-sans leading-relaxed">
+            <p className="text-base sm:text-lg text-[#F7F3E8] font-sans leading-relaxed">
               A comprehensive developmental pathway from early childhood wonder to rigorous +2 scholarship, engineered to foster intellectual independence and critical thought.
             </p>
           </div>
@@ -41,38 +41,38 @@ export default function AcademicsPage() {
       </section>
 
       {/* Pedagogical Principles */}
-      <section className="py-16 border-b border-[#E2DBD0] bg-white">
+      <section className="py-16 border-b border-[#DEDCCF] bg-white">
         <Container>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="p-6 bg-[#FAF6EE] border border-[#EAE3D7]">
-              <BrainCircuit className="w-7 h-7 text-[#C5A059] mb-3" />
-              <h3 className="font-serif font-bold text-base text-[#14342B] mb-1">Inquiry-Based Learning</h3>
-              <p className="text-xs text-[#181C20]/75 leading-relaxed">Questions lead the classroom; students learn by observing, formulating hypotheses, and testing ideas.</p>
+            <div className="p-6 bg-[#FBF9F2] border border-[#DEDCCF] rounded-xl shadow-[0_4px_20px_rgba(15,71,53,0.04)]">
+              <BrainCircuit className="w-7 h-7 text-[#B88A2A] mb-3" />
+              <h3 className="font-serif font-bold text-base text-[#0F4735] mb-1">Inquiry-Based Learning</h3>
+              <p className="text-xs text-[#26332E] leading-relaxed">Questions lead the classroom; students learn by observing, formulating hypotheses, and testing ideas.</p>
             </div>
 
-            <div className="p-6 bg-[#FAF6EE] border border-[#EAE3D7]">
-              <Sparkles className="w-7 h-7 text-[#C5A059] mb-3" />
-              <h3 className="font-serif font-bold text-base text-[#14342B] mb-1">Experiential STEM</h3>
-              <p className="text-xs text-[#181C20]/75 leading-relaxed">Coding, robotics, and hands-on laboratory modules integrated seamlessly from primary grades upward.</p>
+            <div className="p-6 bg-[#FBF9F2] border border-[#DEDCCF] rounded-xl shadow-[0_4px_20px_rgba(15,71,53,0.04)]">
+              <Sparkles className="w-7 h-7 text-[#B88A2A] mb-3" />
+              <h3 className="font-serif font-bold text-base text-[#0F4735] mb-1">Experiential STEM</h3>
+              <p className="text-xs text-[#26332E] leading-relaxed">Coding, robotics, and hands-on laboratory modules integrated seamlessly from primary grades upward.</p>
             </div>
 
-            <div className="p-6 bg-[#FAF6EE] border border-[#EAE3D7]">
-              <BookOpen className="w-7 h-7 text-[#C5A059] mb-3" />
-              <h3 className="font-serif font-bold text-base text-[#14342B] mb-1">Bilingual Mastery</h3>
-              <p className="text-xs text-[#181C20]/75 leading-relaxed">Fluency and articulate expression in English alongside deep appreciation for Hindi and Indian literature.</p>
+            <div className="p-6 bg-[#FBF9F2] border border-[#DEDCCF] rounded-xl shadow-[0_4px_20px_rgba(15,71,53,0.04)]">
+              <BookOpen className="w-7 h-7 text-[#B88A2A] mb-3" />
+              <h3 className="font-serif font-bold text-base text-[#0F4735] mb-1">Bilingual Mastery</h3>
+              <p className="text-xs text-[#26332E] leading-relaxed">Fluency and articulate expression in English alongside deep appreciation for Hindi and Indian literature.</p>
             </div>
 
-            <div className="p-6 bg-[#FAF6EE] border border-[#EAE3D7]">
-              <GraduationCap className="w-7 h-7 text-[#C5A059] mb-3" />
-              <h3 className="font-serif font-bold text-base text-[#14342B] mb-1">Individual Mentorship</h3>
-              <p className="text-xs text-[#181C20]/75 leading-relaxed">Low student-teacher ratios ensuring every learner receives personalized academic tracking and support.</p>
+            <div className="p-6 bg-[#FBF9F2] border border-[#DEDCCF] rounded-xl shadow-[0_4px_20px_rgba(15,71,53,0.04)]">
+              <GraduationCap className="w-7 h-7 text-[#B88A2A] mb-3" />
+              <h3 className="font-serif font-bold text-base text-[#0F4735] mb-1">Individual Mentorship</h3>
+              <p className="text-xs text-[#26332E] leading-relaxed">Low student-teacher ratios ensuring every learner receives personalized academic tracking and support.</p>
             </div>
           </div>
         </Container>
       </section>
 
       {/* Core Stages */}
-      <section className="py-20 lg:py-24 border-b border-[#E2DBD0]">
+      <section className="py-20 lg:py-24 border-b border-[#DEDCCF] bg-[#F7F3E8]">
         <Container>
           <SectionHeading
             badge="Developmental Architecture"
@@ -88,12 +88,12 @@ export default function AcademicsPage() {
       </section>
 
       {/* Curriculum Disclosure */}
-      <section className="py-8 bg-[#FAF6EE] border-b border-[#E2DBD0]">
+      <section className="py-8 bg-[#E7EDE2] border-b border-[#DEDCCF]">
         <Container>
-          <div className="flex items-center gap-3 p-4 bg-white border border-[#E2DBD0]">
-            <ShieldCheck className="w-5 h-5 text-[#C5A059] shrink-0" />
-            <p className="text-xs text-[#181C20]/70 font-sans leading-relaxed">
-              <strong className="text-[#14342B]">Academic Regulatory Notice:</strong> Swayambhoo International School aligns its foundational curriculum with the National Education Policy (NEP) guidelines and progressive pedagogical benchmarks. Institutional affiliations and examination board registrations are processed progressively in accordance with formal state and national directives.
+          <div className="flex items-center gap-3 p-4 bg-white border border-[#DEDCCF] rounded-xl shadow-[0_2px_10px_rgba(15,71,53,0.03)]">
+            <ShieldCheck className="w-5 h-5 text-[#B88A2A] shrink-0" />
+            <p className="text-xs text-[#26332E] font-sans leading-relaxed">
+              <strong className="text-[#0F4735]">Academic Regulatory Notice:</strong> Swayambhoo International School aligns its foundational curriculum with the National Education Policy (NEP) guidelines and progressive pedagogical benchmarks. Institutional affiliations and examination board registrations are processed progressively in accordance with formal state and national directives.
             </p>
           </div>
         </Container>

@@ -15,6 +15,7 @@ import { SafetySection } from "@/components/home/SafetySection";
 import { SustainabilitySection } from "@/components/home/SustainabilitySection";
 import { UpcomingEventsSection } from "@/components/home/UpcomingEventsSection";
 import { AdmissionsCTA } from "@/components/home/AdmissionsCTA";
+import { TeacherRecruitmentBanner } from "@/components/home/TeacherRecruitmentBanner";
 import { LocationSection } from "@/components/home/LocationSection";
 
 export const metadata = constructMetadata({
@@ -32,6 +33,7 @@ export default function HomePage() {
       <SchoolIntroduction />
       <WhySwayambhoo />
       <AcademicOverview />
+      <TeacherRecruitmentBanner />
       <SmartClassrooms />
       <STEMSection />
       <CampusArchitecture />

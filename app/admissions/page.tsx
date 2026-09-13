@@ -55,27 +55,27 @@ export default function AdmissionsPage() {
   ];
 
   return (
-    <div className="bg-[#FDFBF7]">
+    <div className="bg-[#F7F3E8]">
       {/* Hero Header */}
-      <section className="bg-[#081611] text-[#FDFBF7] py-20 lg:py-24 relative overflow-hidden border-b-2 border-[#C5A059]">
+      <section className="bg-[#083526] text-[#F7F3E8] py-20 lg:py-24 relative overflow-hidden border-b-2 border-[#B88A2A]">
         <Container className="relative z-10">
           <div className="max-w-3xl space-y-4">
-            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#C5A059]">
+            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#D4B15A] font-bold">
               <Link href="/" className="hover:underline">Home</Link>
               <span>/</span>
               <span>Admissions</span>
             </div>
 
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#14342B] border border-[#C5A059]/40 text-xs text-[#C5A059] uppercase tracking-wider font-semibold">
-              <span className="w-2 h-2 rounded-full bg-[#C5A059] animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#0F4735] border border-[#B88A2A]/40 text-xs text-[#D4B15A] uppercase tracking-wider font-semibold rounded-full">
+              <span className="w-2 h-2 rounded-full bg-[#B88A2A] animate-pulse" />
               <span>Enrollment Open for 2025–2026</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-[#FFFFFF]">
               Admissions Portal & Guidelines
             </h1>
 
-            <p className="text-base sm:text-lg text-[#E8DFC8]/90 font-sans leading-relaxed">
+            <p className="text-base sm:text-lg text-[#F7F3E8] font-sans leading-relaxed">
               We welcome families who seek balanced academic excellence, modern biophilic infrastructure, and a strong character foundation for their children in Gaya, Bihar.
             </p>
           </div>
@@ -83,7 +83,7 @@ export default function AdmissionsPage() {
       </section>
 
       {/* 4-Step Process Section */}
-      <section className="py-16 border-b border-[#E2DBD0] bg-white">
+      <section className="py-16 border-b border-[#DEDCCF] bg-white">
         <Container>
           <SectionHeading
             badge="Simple Transparent Procedure"
@@ -97,18 +97,18 @@ export default function AdmissionsPage() {
               return (
                 <div
                   key={item.step}
-                  className="bg-[#FAF6EE] p-6 border border-[#EAE3D7] hover:border-[#C5A059] transition-colors relative"
+                  className="bg-[#FBF9F2] p-6 border border-[#DEDCCF] hover:border-[#B88A2A] rounded-2xl shadow-[0_4px_20px_rgba(15,71,53,0.04)] transition-all relative"
                 >
-                  <span className="text-xs font-bold text-[#C5A059] uppercase tracking-widest block mb-3">
+                  <span className="text-xs font-bold text-[#B88A2A] uppercase tracking-widest block mb-3">
                     Step {item.step}
                   </span>
-                  <div className="w-10 h-10 bg-white border border-[#E2DBD0] flex items-center justify-center text-[#14342B] mb-4">
-                    <Icon className="w-5 h-5 text-[#C5A059]" />
+                  <div className="w-10 h-10 bg-[#E7EDE2] border border-[#DEDCCF] rounded-xl flex items-center justify-center text-[#0F4735] mb-4">
+                    <Icon className="w-5 h-5 text-[#B88A2A]" />
                   </div>
-                  <h3 className="font-serif font-bold text-base text-[#14342B] mb-2">
+                  <h3 className="font-serif font-bold text-base text-[#0F4735] mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-[#181C20]/75 leading-relaxed font-sans">
+                  <p className="text-xs text-[#26332E] leading-relaxed font-sans">
                     {item.desc}
                   </p>
                 </div>
@@ -119,7 +119,7 @@ export default function AdmissionsPage() {
       </section>
 
       {/* Main Admission Form Section */}
-      <section className="py-20 lg:py-24 border-b border-[#E2DBD0]">
+      <section className="py-20 lg:py-24 border-b border-[#DEDCCF] bg-[#F7F3E8]">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Left Column: Form */}
@@ -130,14 +130,14 @@ export default function AdmissionsPage() {
             {/* Right Column: Support & Office Details */}
             <div className="lg:col-span-4 space-y-6">
               {/* WhatsApp Fast Track Card */}
-              <div className="bg-[#14342B] text-white p-6 sm:p-8 border border-[#0E241B] space-y-4">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#C5A059] block">
+              <div className="bg-[#083526] text-white p-6 sm:p-8 border border-[#B88A2A]/40 rounded-2xl shadow-[0_8px_30px_rgba(15,71,53,0.1)] space-y-4">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#D4B15A] block">
                   Instant Counselor Chat
                 </span>
-                <h3 className="font-serif text-xl font-bold text-white">
+                <h3 className="font-serif text-xl font-bold text-[#FFFFFF]">
                   Have Questions on the Go?
                 </h3>
-                <p className="text-xs sm:text-sm text-[#E8DFC8]/85 leading-relaxed font-sans">
+                <p className="text-xs sm:text-sm text-[#F7F3E8] leading-relaxed font-sans">
                   Chat directly with our admissions desk on WhatsApp. We answer queries regarding class availability, transport routes, and prospectus documents.
                 </p>
 
@@ -146,7 +146,7 @@ export default function AdmissionsPage() {
                   size="md"
                   href={getWhatsAppUrl({ source: "admissions" })}
                   isExternal
-                  className="w-full justify-center text-xs"
+                  className="w-full justify-center text-xs shadow-md"
                   leftIcon={<MessageCircle className="w-4 h-4" />}
                 >
                   WhatsApp: +91 96614 48541
@@ -154,58 +154,58 @@ export default function AdmissionsPage() {
               </div>
 
               {/* Admissions Office Information */}
-              <div className="bg-[#FAF6EE] border border-[#EAE3D7] p-6 space-y-4 text-xs text-[#181C20]/80">
-                <h4 className="font-serif font-bold text-base text-[#14342B] border-b border-[#E2DBD0] pb-2">
+              <div className="bg-[#FBF9F2] border border-[#DEDCCF] rounded-2xl p-6 space-y-4 text-xs text-[#26332E] shadow-[0_4px_20px_rgba(15,71,53,0.04)]">
+                <h4 className="font-serif font-bold text-base text-[#0F4735] border-b border-[#DEDCCF] pb-2">
                   Admissions Office Desk
                 </h4>
 
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5" />
+                  <MapPin className="w-4 h-4 text-[#B88A2A] shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-[#14342B] block">Campus Address:</strong>
+                    <strong className="text-[#0F4735] block">Campus Address:</strong>
                     <span>{siteConfig.contact.address.full}</span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Phone className="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5" />
+                  <Phone className="w-4 h-4 text-[#B88A2A] shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-[#14342B] block">Telephone:</strong>
-                    <a href={`tel:${siteConfig.contact.phone.replace(/[^0-9+]/g, "")}`} className="hover:underline">
+                    <strong className="text-[#0F4735] block">Telephone:</strong>
+                    <a href={`tel:${siteConfig.contact.phone.replace(/[^0-9+]/g, "")}`} className="hover:underline text-[#0F4735] font-semibold">
                       {siteConfig.contact.phone}
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Clock className="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5" />
+                  <Clock className="w-4 h-4 text-[#B88A2A] shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-[#14342B] block">Working Hours:</strong>
+                    <strong className="text-[#0F4735] block">Working Hours:</strong>
                     <span>{siteConfig.contact.officeHours}</span>
                   </div>
                 </div>
               </div>
 
               {/* Required Documents Checklist */}
-              <div className="bg-white border border-[#EAE3D7] p-6 space-y-3">
-                <h4 className="font-serif font-bold text-sm text-[#14342B] border-b border-[#F5EFEB] pb-2">
+              <div className="bg-white border border-[#DEDCCF] rounded-2xl p-6 space-y-3 shadow-[0_4px_20px_rgba(15,71,53,0.04)]">
+                <h4 className="font-serif font-bold text-sm text-[#0F4735] border-b border-[#DEDCCF] pb-2">
                   Documents for Final Enrollment
                 </h4>
-                <ul className="space-y-2 text-xs text-[#181C20]/75">
+                <ul className="space-y-2 text-xs text-[#26332E]">
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#C5A059] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#B88A2A] shrink-0 mt-0.5" />
                     <span>Birth Certificate issued by competent authority</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#C5A059] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#B88A2A] shrink-0 mt-0.5" />
                     <span>Recent passport-size photographs of student & parents</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#C5A059] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#B88A2A] shrink-0 mt-0.5" />
                     <span>Transfer Certificate (for Grade 2 and above)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#C5A059] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#B88A2A] shrink-0 mt-0.5" />
                     <span>Previous year academic progress report card</span>
                   </li>
                 </ul>

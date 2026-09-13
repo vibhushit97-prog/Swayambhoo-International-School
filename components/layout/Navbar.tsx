@@ -8,14 +8,13 @@ import { siteConfig } from "@/config/site";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { Button } from "@/components/ui/Button";
 import { MobileNav } from "./MobileNav";
-import { Phone, MessageCircle, Menu } from "lucide-react";
+import { Phone, MessageCircle, Menu, GraduationCap } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isHomePage = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,47 +30,45 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const transparentNavbar = isHomePage && !isScrolled;
-
   if (pathname.startsWith("/admin")) {
     return null;
   }
 
   return (
     <>
-      {/* Pre-header Top Bar */}
-      <div
-        className={cn(
-          "w-full transition-colors duration-300 py-2 border-b text-xs",
-          transparentNavbar
-            ? "bg-[#081611]/90 text-[#E8DFC8] border-white/10"
-            : "bg-[#14342B] text-[#FDFBF7] border-[#0E241B]"
-        )}
-      >
+      {/* 5. Pre-header Top Utility Bar: Deep Forest Green (#083526) with Warm Ivory (#F7F3E8) & Gold Accents (#D4B15A) */}
+      <div className="w-full transition-colors duration-300 py-2 bg-[#083526] text-[#F7F3E8] border-b border-[#0F4735] text-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2">
           <div className="flex items-center gap-4 text-[11px] sm:text-xs">
             <span className="flex items-center gap-1.5">
-              <span className="inline-block w-2 h-2 rounded-full bg-[#C5A059] animate-pulse" />
-              <span className="font-semibold text-[#C5A059]">Admissions Open 2025–26</span>
-              <span className="hidden md:inline text-white/50">|</span>
-              <span className="hidden md:inline">Wazirganj, Gaya, Bihar</span>
+              <span className="inline-block w-2 h-2 rounded-full bg-[#D4B15A] animate-pulse" />
+              <span className="font-semibold text-[#D4B15A]">Admissions Open 2025–26</span>
+              <span className="hidden md:inline text-[#F7F3E8]/40">|</span>
+              <span className="hidden md:inline text-[#F7F3E8]/90">Wazirganj, Gaya, Bihar</span>
             </span>
+            <Link
+              href="/careers/apply"
+              className="hidden lg:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#B88A2A]/20 hover:bg-[#B88A2A] text-[#D4B15A] hover:text-[#083526] border border-[#B88A2A]/50 transition-colors font-semibold"
+            >
+              <GraduationCap className="w-3.5 h-3.5" />
+              <span>We&apos;re Hiring Teachers • Apply Online</span>
+            </Link>
           </div>
 
           <div className="flex items-center gap-5 text-[11px] sm:text-xs">
             <a
               href={`tel:${siteConfig.contact.phone.replace(/[^0-9+]/g, "")}`}
-              className="flex items-center gap-1.5 hover:text-[#C5A059] transition-colors"
+              className="flex items-center gap-1.5 text-[#F7F3E8] hover:text-[#D4B15A] transition-colors font-medium"
             >
-              <Phone className="w-3.5 h-3.5 text-[#C5A059]" />
-              <span className="font-medium">{siteConfig.contact.phone}</span>
+              <Phone className="w-3.5 h-3.5 text-[#D4B15A]" />
+              <span>{siteConfig.contact.phone}</span>
             </a>
 
             <a
               href={getWhatsAppUrl({ source: "navbar" })}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-[#25D366] hover:text-[#2fe674] transition-colors font-medium"
+              className="flex items-center gap-1.5 text-[#25D366] hover:text-[#42e881] transition-colors font-medium"
             >
               <MessageCircle className="w-3.5 h-3.5" />
               <span>WhatsApp: +91 96614 48541</span>
@@ -80,13 +77,11 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Main Sticky Navbar */}
+      {/* 4. Main Sticky Navbar: Cream Background (#FBF9F2), Forest Green Active/Hover (#0F4735), Thin Gold Underline (#B88A2A) */}
       <header
         className={cn(
-          "sticky top-0 z-50 w-full transition-all duration-300",
-          transparentNavbar
-            ? "bg-[#0E241B]/85 backdrop-blur-md border-b border-white/10 text-[#FDFBF7]"
-            : "bg-[#FDFBF7]/95 backdrop-blur-md border-b border-[#EAE3D7] text-[#14342B] shadow-sm"
+          "sticky top-0 z-50 w-full transition-all duration-300 bg-[#FBF9F2]/95 backdrop-blur-md border-b border-[#DEDCCF] text-[#26332E]",
+          isScrolled ? "shadow-md" : "shadow-xs"
         )}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -94,7 +89,7 @@ export function Navbar() {
             {/* School Brand Logo */}
             <Link
               href="/"
-              className="group flex items-center gap-3 focus-visible:outline-2 focus-visible:outline-[#C5A059]"
+              className="group flex items-center gap-3 focus-visible:outline-2 focus-visible:outline-[#B88A2A]"
               aria-label="Swayambhoo International School Home"
             >
               <div className="relative w-11 h-11 sm:w-13 sm:h-13 shrink-0">
@@ -108,28 +103,13 @@ export function Navbar() {
                 />
               </div>
               <div className="flex flex-col">
-                <span
-                  className={cn(
-                    "font-serif font-bold text-lg sm:text-xl tracking-wider leading-none transition-colors",
-                    transparentNavbar ? "text-[#FDFBF7] group-hover:text-[#C5A059]" : "text-[#14342B] group-hover:text-[#9C7A33]"
-                  )}
-                >
+                <span className="font-serif font-bold text-lg sm:text-xl tracking-wider leading-none text-[#0F4735] group-hover:text-[#B88A2A] transition-colors">
                   SWAYAMBHOO
                 </span>
-                <span
-                  className={cn(
-                    "text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase mt-0.5",
-                    transparentNavbar ? "text-[#C5A059]" : "text-[#856627]"
-                  )}
-                >
+                <span className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase mt-0.5 text-[#B88A2A]">
                   International School
                 </span>
-                <span
-                  className={cn(
-                    "text-[8px] tracking-[0.16em] uppercase hidden sm:block",
-                    transparentNavbar ? "text-white/60" : "text-[#181C20]/60"
-                  )}
-                >
+                <span className="text-[8px] tracking-[0.16em] uppercase hidden sm:block text-[#66716A]">
                   Learn • Grow • Lead
                 </span>
               </div>
@@ -144,19 +124,15 @@ export function Navbar() {
                     key={item.href}
                     href={item.href}
                     className={cn(
-                      "text-xs font-semibold tracking-wider uppercase transition-colors py-1 relative focus-visible:outline-2 focus-visible:outline-[#C5A059]",
-                      transparentNavbar
-                        ? isActive
-                          ? "text-[#C5A059]"
-                          : "text-[#FDFBF7]/90 hover:text-[#C5A059]"
-                        : isActive
-                        ? "text-[#14342B] font-bold"
-                        : "text-[#181C20]/80 hover:text-[#14342B]"
+                      "text-xs font-semibold tracking-wider uppercase transition-colors py-1 relative focus-visible:outline-2 focus-visible:outline-[#B88A2A]",
+                      isActive
+                        ? "text-[#0F4735] font-bold"
+                        : "text-[#26332E]/85 hover:text-[#0F4735]"
                     )}
                   >
                     {item.label}
                     {isActive && (
-                      <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#C5A059]" />
+                      <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#B88A2A]" />
                     )}
                   </Link>
                 );
@@ -166,7 +142,7 @@ export function Navbar() {
             {/* Desktop Actions */}
             <div className="hidden lg:flex items-center gap-3">
               <Button
-                variant={transparentNavbar ? "gold" : "primary"}
+                variant="primary"
                 size="sm"
                 href="/admissions"
                 className="font-bold text-xs"
@@ -190,12 +166,7 @@ export function Navbar() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className={cn(
-                  "p-2 rounded-none border focus-visible:outline-2 focus-visible:outline-[#C5A059]",
-                  transparentNavbar
-                    ? "text-[#FDFBF7] border-white/20 hover:bg-white/10"
-                    : "text-[#14342B] border-[#E2DBD0] hover:bg-[#14342B]/5"
-                )}
+                className="p-2 rounded-none border border-[#DEDCCF] text-[#0F4735] hover:bg-[#E7EDE2] focus-visible:outline-2 focus-visible:outline-[#B88A2A] transition-colors"
                 aria-label="Toggle navigation menu"
                 aria-expanded={mobileMenuOpen}
               >

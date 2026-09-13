@@ -5,6 +5,7 @@ import { siteConfig } from "@/config/site";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
+import { FloatingRecruitmentCTA } from "@/components/recruitment/FloatingRecruitmentCTA";
 import { StructuredData } from "@/components/seo/StructuredData";
 
 const inter = Inter({
@@ -21,7 +22,7 @@ const cinzel = Cinzel({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#14342B",
+  themeColor: "#0F4735",
   width: "device-width",
   initialScale: 1,
 };
@@ -89,13 +90,14 @@ export default function RootLayout({
       <head>
         <StructuredData />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#FDFBF7] text-[#181C20] antialiased selection:bg-[#C5A059] selection:text-[#0E241B]">
+      <body className="min-h-screen flex flex-col bg-[#F7F3E8] text-[#26332E] antialiased selection:bg-[#B88A2A] selection:text-white">
         <Navbar />
         <main id="main-content" className="flex-1 w-full">
           {children}
         </main>
         <Footer />
         <FloatingWhatsApp />
+        <FloatingRecruitmentCTA />
       </body>
     </html>
   );

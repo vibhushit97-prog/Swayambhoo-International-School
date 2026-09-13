@@ -10,7 +10,12 @@ import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { Button } from "@/components/ui/Button";
 import { CheckCircle2, AlertCircle, Loader2, MessageCircle, Phone } from "lucide-react";
 
-export function AdmissionForm() {
+interface AdmissionFormProps {
+  initialApplyingFor?: string;
+  className?: string;
+}
+
+export function AdmissionForm({ initialApplyingFor, className }: AdmissionFormProps = {}) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState<{
     success: boolean;
@@ -34,7 +39,7 @@ export function AdmissionForm() {
       whatsapp: "",
       email: "",
       currentClass: "",
-      applyingFor: "Grade 1",
+      applyingFor: (initialApplyingFor as any) || "Grade 1",
       academicSession: "Academic Session 2025–2026",
       message: "",
     },
@@ -78,32 +83,32 @@ export function AdmissionForm() {
 
   if (submitSuccess) {
     return (
-      <div className="bg-white border-2 border-[#C5A059] p-8 sm:p-12 shadow-lg text-center space-y-6 animate-in fade-in duration-300">
-        <div className="w-16 h-16 bg-[#14342B] text-[#C5A059] mx-auto flex items-center justify-center border border-[#C5A059]">
+      <div className="bg-[#FBF9F2] border-2 border-[#B88A2A] p-8 sm:p-12 shadow-xl text-center space-y-6 animate-in fade-in duration-300">
+        <div className="w-16 h-16 bg-[#083526] text-[#D4B15A] mx-auto flex items-center justify-center border border-[#B88A2A]">
           <CheckCircle2 className="w-10 h-10" />
         </div>
 
         <div>
-          <span className="text-xs uppercase tracking-widest text-[#856627] font-bold block mb-1">
+          <span className="text-xs uppercase tracking-widest text-[#B88A2A] font-bold block mb-1">
             Enquiry Registered
           </span>
-          <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#14342B]">
+          <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#0F4735]">
             Thank You for Reaching Out
           </h3>
-          <p className="text-xs text-[#64748B] mt-1 font-mono">
-            Reference ID: <strong className="text-[#14342B]">{submitSuccess.id}</strong>
+          <p className="text-xs text-[#66716A] mt-1 font-mono">
+            Reference ID: <strong className="text-[#0F4735]">{submitSuccess.id}</strong>
           </p>
         </div>
 
-        <p className="text-sm text-[#181C20]/80 leading-relaxed font-sans max-w-lg mx-auto">
+        <p className="text-sm text-[#26332E]/85 leading-relaxed font-sans max-w-lg mx-auto">
           {submitSuccess.message ||
             "Your enquiry has been successfully logged. Our Admissions Counselor will review the details and contact you within 24 to 48 hours."}
         </p>
 
         {submitSuccess.isDevelopmentFallback && (
-          <div className="bg-[#FAF6EE] border border-[#E2DBD0] p-3 text-xs text-[#856627] max-w-md mx-auto text-left">
+          <div className="bg-[#E7EDE2] border border-[#C9D8C8] p-3 text-xs text-[#0F4735] max-w-md mx-auto text-left">
             <p className="font-semibold">Developer Notice:</p>
-            <p className="text-[11px] text-[#181C20]/70">
+            <p className="text-[11px] text-[#26332E]/75">
               Your submission was accepted and formatted through the safe development fallback mode (PostgreSQL DATABASE_URL not yet configured).
             </p>
           </div>
@@ -134,15 +139,15 @@ export function AdmissionForm() {
   }
 
   return (
-    <div className="bg-white border border-[#EAE3D7] p-6 sm:p-10 lg:p-12 shadow-sm">
-      <div className="mb-8 pb-6 border-b border-[#F5EFEB]">
-        <span className="text-xs font-bold uppercase tracking-widest text-[#C5A059] block mb-1">
+    <div className="bg-[#FBF9F2] border border-[#DEDCCF] p-6 sm:p-10 lg:p-12 shadow-sm">
+      <div className="mb-8 pb-6 border-b border-[#DEDCCF]">
+        <span className="text-xs font-bold uppercase tracking-widest text-[#B88A2A] block mb-1">
           Online Admission Desk
         </span>
-        <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#14342B]">
+        <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#0F4735]">
           Admission Enquiry Form
         </h3>
-        <p className="text-xs sm:text-sm text-[#181C20]/75 font-sans mt-1">
+        <p className="text-xs sm:text-sm text-[#26332E]/80 font-sans mt-1">
           Please complete all required fields. Our admissions counselor will connect with you with the prospectus and fee structure.
         </p>
       </div>
@@ -160,7 +165,7 @@ export function AdmissionForm() {
           <div>
             <label
               htmlFor="studentName"
-              className="block text-xs font-bold uppercase tracking-wider text-[#14342B] mb-2"
+              className="block text-xs font-bold uppercase tracking-wider text-[#0F4735] mb-2"
             >
               Student Full Name <span className="text-red-600">*</span>
             </label>
@@ -169,8 +174,8 @@ export function AdmissionForm() {
               type="text"
               {...register("studentName")}
               placeholder="e.g. Aarav Sharma"
-              className={`w-full px-4 py-3 text-sm bg-[#FAF6EE] border transition-colors focus:bg-white focus:outline-none focus:border-[#C5A059] ${
-                errors.studentName ? "border-red-500" : "border-[#E2DBD0]"
+              className={`w-full px-4 py-3 text-sm bg-white border text-[#26332E] transition-colors focus:bg-white focus:outline-none focus:border-[#0F4735] focus:ring-1 focus:ring-[#0F4735] ${
+                errors.studentName ? "border-red-500" : "border-[#DEDCCF]"
               }`}
             />
             {errors.studentName && (
@@ -181,7 +186,7 @@ export function AdmissionForm() {
           <div>
             <label
               htmlFor="parentName"
-              className="block text-xs font-bold uppercase tracking-wider text-[#14342B] mb-2"
+              className="block text-xs font-bold uppercase tracking-wider text-[#0F4735] mb-2"
             >
               Parent / Guardian Name <span className="text-red-600">*</span>
             </label>
@@ -190,8 +195,8 @@ export function AdmissionForm() {
               type="text"
               {...register("parentName")}
               placeholder="e.g. Rajesh Sharma"
-              className={`w-full px-4 py-3 text-sm bg-[#FAF6EE] border transition-colors focus:bg-white focus:outline-none focus:border-[#C5A059] ${
-                errors.parentName ? "border-red-500" : "border-[#E2DBD0]"
+              className={`w-full px-4 py-3 text-sm bg-white border text-[#26332E] transition-colors focus:bg-white focus:outline-none focus:border-[#0F4735] focus:ring-1 focus:ring-[#0F4735] ${
+                errors.parentName ? "border-red-500" : "border-[#DEDCCF]"
               }`}
             />
             {errors.parentName && (
@@ -205,7 +210,7 @@ export function AdmissionForm() {
           <div>
             <label
               htmlFor="phone"
-              className="block text-xs font-bold uppercase tracking-wider text-[#14342B] mb-2"
+              className="block text-xs font-bold uppercase tracking-wider text-[#0F4735] mb-2"
             >
               Mobile Phone Number <span className="text-red-600">*</span>
             </label>
@@ -214,8 +219,8 @@ export function AdmissionForm() {
               type="tel"
               {...register("phone")}
               placeholder="e.g. 9876543210"
-              className={`w-full px-4 py-3 text-sm bg-[#FAF6EE] border transition-colors focus:bg-white focus:outline-none focus:border-[#C5A059] ${
-                errors.phone ? "border-red-500" : "border-[#E2DBD0]"
+              className={`w-full px-4 py-3 text-sm bg-white border text-[#26332E] transition-colors focus:bg-white focus:outline-none focus:border-[#0F4735] focus:ring-1 focus:ring-[#0F4735] ${
+                errors.phone ? "border-red-500" : "border-[#DEDCCF]"
               }`}
             />
             {errors.phone && (
@@ -226,7 +231,7 @@ export function AdmissionForm() {
           <div>
             <label
               htmlFor="whatsapp"
-              className="block text-xs font-bold uppercase tracking-wider text-[#14342B] mb-2"
+              className="block text-xs font-bold uppercase tracking-wider text-[#0F4735] mb-2"
             >
               WhatsApp Number (Optional)
             </label>
@@ -235,8 +240,8 @@ export function AdmissionForm() {
               type="tel"
               {...register("whatsapp")}
               placeholder="e.g. 9876543210"
-              className={`w-full px-4 py-3 text-sm bg-[#FAF6EE] border transition-colors focus:bg-white focus:outline-none focus:border-[#C5A059] ${
-                errors.whatsapp ? "border-red-500" : "border-[#E2DBD0]"
+              className={`w-full px-4 py-3 text-sm bg-white border text-[#26332E] transition-colors focus:bg-white focus:outline-none focus:border-[#0F4735] focus:ring-1 focus:ring-[#0F4735] ${
+                errors.whatsapp ? "border-red-500" : "border-[#DEDCCF]"
               }`}
             />
             {errors.whatsapp && (
@@ -249,7 +254,7 @@ export function AdmissionForm() {
         <div>
           <label
             htmlFor="email"
-            className="block text-xs font-bold uppercase tracking-wider text-[#14342B] mb-2"
+            className="block text-xs font-bold uppercase tracking-wider text-[#0F4735] mb-2"
           >
             Email Address <span className="text-red-600">*</span>
           </label>
@@ -258,8 +263,8 @@ export function AdmissionForm() {
             type="email"
             {...register("email")}
             placeholder="e.g. parent@example.com"
-            className={`w-full px-4 py-3 text-sm bg-[#FAF6EE] border transition-colors focus:bg-white focus:outline-none focus:border-[#C5A059] ${
-              errors.email ? "border-red-500" : "border-[#E2DBD0]"
+            className={`w-full px-4 py-3 text-sm bg-white border text-[#26332E] transition-colors focus:bg-white focus:outline-none focus:border-[#0F4735] focus:ring-1 focus:ring-[#0F4735] ${
+              errors.email ? "border-red-500" : "border-[#DEDCCF]"
             }`}
           />
           {errors.email && (
@@ -272,7 +277,7 @@ export function AdmissionForm() {
           <div>
             <label
               htmlFor="currentClass"
-              className="block text-xs font-bold uppercase tracking-wider text-[#14342B] mb-2"
+              className="block text-xs font-bold uppercase tracking-wider text-[#0F4735] mb-2"
             >
               Current Class / School <span className="text-red-600">*</span>
             </label>
@@ -281,8 +286,8 @@ export function AdmissionForm() {
               type="text"
               {...register("currentClass")}
               placeholder="e.g. UKG or Grade 4"
-              className={`w-full px-4 py-3 text-sm bg-[#FAF6EE] border transition-colors focus:bg-white focus:outline-none focus:border-[#C5A059] ${
-                errors.currentClass ? "border-red-500" : "border-[#E2DBD0]"
+              className={`w-full px-4 py-3 text-sm bg-white border text-[#26332E] transition-colors focus:bg-white focus:outline-none focus:border-[#0F4735] focus:ring-1 focus:ring-[#0F4735] ${
+                errors.currentClass ? "border-red-500" : "border-[#DEDCCF]"
               }`}
             />
             {errors.currentClass && (
@@ -293,15 +298,15 @@ export function AdmissionForm() {
           <div>
             <label
               htmlFor="applyingFor"
-              className="block text-xs font-bold uppercase tracking-wider text-[#14342B] mb-2"
+              className="block text-xs font-bold uppercase tracking-wider text-[#0F4735] mb-2"
             >
               Class Applying For <span className="text-red-600">*</span>
             </label>
             <select
               id="applyingFor"
               {...register("applyingFor")}
-              className={`w-full px-4 py-3 text-sm bg-[#FAF6EE] border transition-colors focus:bg-white focus:outline-none focus:border-[#C5A059] ${
-                errors.applyingFor ? "border-red-500" : "border-[#E2DBD0]"
+              className={`w-full px-4 py-3 text-sm bg-white border text-[#26332E] transition-colors focus:bg-white focus:outline-none focus:border-[#0F4735] focus:ring-1 focus:ring-[#0F4735] ${
+                errors.applyingFor ? "border-red-500" : "border-[#DEDCCF]"
               }`}
             >
               {CLASS_OPTIONS.map((cls) => (
@@ -320,15 +325,15 @@ export function AdmissionForm() {
         <div>
           <label
             htmlFor="academicSession"
-            className="block text-xs font-bold uppercase tracking-wider text-[#14342B] mb-2"
+            className="block text-xs font-bold uppercase tracking-wider text-[#0F4735] mb-2"
           >
             Academic Session <span className="text-red-600">*</span>
           </label>
           <select
             id="academicSession"
             {...register("academicSession")}
-            className={`w-full px-4 py-3 text-sm bg-[#FAF6EE] border transition-colors focus:bg-white focus:outline-none focus:border-[#C5A059] ${
-              errors.academicSession ? "border-red-500" : "border-[#E2DBD0]"
+            className={`w-full px-4 py-3 text-sm bg-white border text-[#26332E] transition-colors focus:bg-white focus:outline-none focus:border-[#0F4735] focus:ring-1 focus:ring-[#0F4735] ${
+              errors.academicSession ? "border-red-500" : "border-[#DEDCCF]"
             }`}
           >
             {ACADEMIC_SESSIONS.map((session) => (
@@ -346,7 +351,7 @@ export function AdmissionForm() {
         <div>
           <label
             htmlFor="message"
-            className="block text-xs font-bold uppercase tracking-wider text-[#14342B] mb-2"
+            className="block text-xs font-bold uppercase tracking-wider text-[#0F4735] mb-2"
           >
             Additional Questions / Notes (Optional)
           </label>
@@ -355,8 +360,8 @@ export function AdmissionForm() {
             rows={4}
             {...register("message")}
             placeholder="Tell us about your child's interests, transport requirements, or any specific questions..."
-            className={`w-full px-4 py-3 text-sm bg-[#FAF6EE] border transition-colors focus:bg-white focus:outline-none focus:border-[#C5A059] ${
-              errors.message ? "border-red-500" : "border-[#E2DBD0]"
+            className={`w-full px-4 py-3 text-sm bg-white border text-[#26332E] transition-colors focus:bg-white focus:outline-none focus:border-[#0F4735] focus:ring-1 focus:ring-[#0F4735] ${
+              errors.message ? "border-red-500" : "border-[#DEDCCF]"
             }`}
           />
           {errors.message && (
@@ -365,13 +370,13 @@ export function AdmissionForm() {
         </div>
 
         {/* Submit Button & Direct Assistance */}
-        <div className="pt-4 border-t border-[#F5EFEB] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="pt-4 border-t border-[#DEDCCF] flex flex-col sm:flex-row items-center justify-between gap-4">
           <Button
             type="submit"
             variant="gold"
             size="lg"
             disabled={isSubmitting}
-            className="w-full sm:w-auto"
+            className="w-full sm:w-auto font-bold text-xs uppercase tracking-wider"
             leftIcon={isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : undefined}
           >
             {isSubmitting ? "Processing Enquiry..." : "Submit Admission Enquiry"}
@@ -381,7 +386,7 @@ export function AdmissionForm() {
             href={getWhatsAppUrl({ source: "admissions" })}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-xs font-semibold text-[#14342B] hover:text-[#25D366] transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-semibold text-[#0F4735] hover:text-[#25D366] transition-colors"
           >
             <MessageCircle className="w-4 h-4 text-[#25D366]" />
             <span>Need immediate guidance? WhatsApp Us</span>

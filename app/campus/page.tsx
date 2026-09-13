@@ -18,32 +18,34 @@ export const metadata = constructMetadata({
 
 export default function CampusPage() {
   return (
-    <div className="bg-[#FDFBF7]">
+    <div className="bg-[#F7F3E8]">
       {/* Hero Header */}
-      <section className="bg-[#081611] text-[#FDFBF7] py-20 lg:py-24 relative overflow-hidden border-b-2 border-[#C5A059]">
-        <div className="absolute inset-0 opacity-25">
+      <section className="bg-[#083526] text-[#F7F3E8] py-20 lg:py-24 relative overflow-hidden border-b-2 border-[#B88A2A]">
+        <div className="absolute inset-0 z-0">
           <Image
             src={siteConfig.images.campus.main}
             alt="Campus Masterplan"
             fill
-            className="object-cover"
+            className="object-cover opacity-85"
           />
+          {/* Subtle Green Overlay (~55%) for optimal contrast and photo visibility */}
+          <div className="absolute inset-0 bg-[rgba(15,71,53,0.55)]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#083526]/80 via-transparent to-[#083526]/30" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#081611] via-[#081611]/85 to-transparent" />
 
         <Container className="relative z-10">
           <div className="max-w-3xl space-y-4">
-            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#C5A059]">
+            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#D4B15A] font-bold">
               <Link href="/" className="hover:underline">Home</Link>
               <span>/</span>
               <span>Campus</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-[#FFFFFF]">
               Campus Architecture & Spatial Masterplan
             </h1>
 
-            <p className="text-base sm:text-lg text-[#E8DFC8]/90 font-sans leading-relaxed">
+            <p className="text-base sm:text-lg text-[#F7F3E8] font-sans leading-relaxed">
               Synthesizing neoclassical grandeur with biophilic modernism, our campus in Wazirganj provides a majestic, daylight-filled atmosphere dedicated to scholarship.
             </p>
           </div>
@@ -51,7 +53,7 @@ export default function CampusPage() {
       </section>
 
       {/* Campus Colonnade & Central Facade */}
-      <section className="py-20 border-b border-[#E2DBD0]">
+      <section className="py-20 border-b border-[#DEDCCF] bg-white">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 space-y-6">
@@ -62,7 +64,7 @@ export default function CampusPage() {
                 description="Designed to impress upon students a sense of purpose, dignity, and pride each morning."
               />
 
-              <div className="space-y-4 text-sm sm:text-base text-[#181C20]/80 leading-relaxed font-sans">
+              <div className="space-y-4 text-sm sm:text-base text-[#26332E] leading-relaxed font-sans">
                 <p>
                   The main campus facade features a monumental pediment portico flanked by the twin scholarly wings: the <strong>Knowledge Block</strong> on the west and the <strong>Innovation Block</strong> on the east.
                 </p>
@@ -72,19 +74,19 @@ export default function CampusPage() {
               </div>
 
               <div className="grid grid-cols-2 gap-4 pt-2">
-                <div className="p-4 bg-[#FAF6EE] border border-[#E2DBD0]">
-                  <p className="font-serif font-bold text-lg text-[#14342B]">Knowledge Block</p>
-                  <p className="text-xs text-[#181C20]/70">Foundational arts & library</p>
+                <div className="p-5 bg-[#FBF9F2] border border-[#DEDCCF] rounded-2xl shadow-[0_4px_20px_rgba(15,71,53,0.04)]">
+                  <p className="font-serif font-bold text-lg text-[#0F4735]">Knowledge Block</p>
+                  <p className="text-xs text-[#26332E]">Foundational arts & library</p>
                 </div>
-                <div className="p-4 bg-[#FAF6EE] border border-[#E2DBD0]">
-                  <p className="font-serif font-bold text-lg text-[#14342B]">Innovation Block</p>
-                  <p className="text-xs text-[#181C20]/70">Advanced STEM & robotics</p>
+                <div className="p-5 bg-[#FBF9F2] border border-[#DEDCCF] rounded-2xl shadow-[0_4px_20px_rgba(15,71,53,0.04)]">
+                  <p className="font-serif font-bold text-lg text-[#0F4735]">Innovation Block</p>
+                  <p className="text-xs text-[#26332E]">Advanced STEM & robotics</p>
                 </div>
               </div>
             </div>
 
             <div className="lg:col-span-6">
-              <div className="relative aspect-16/10 w-full border-2 border-[#C5A059] shadow-xl overflow-hidden group">
+              <div className="relative aspect-16/10 w-full border-2 border-[#B88A2A] shadow-[0_8px_30px_rgba(15,71,53,0.12)] rounded-2xl overflow-hidden group">
                 <Image
                   src={siteConfig.images.campus.main}
                   alt="Swayambhoo Grand Colonnade - Proposed Visualization"
@@ -92,7 +94,7 @@ export default function CampusPage() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover group-hover:scale-103 transition-transform duration-700"
                 />
-                <span className="absolute bottom-4 left-4 text-xs uppercase tracking-widest text-[#C5A059] bg-[#0E241B]/90 px-3 py-1.5 border border-[#C5A059]/40">
+                <span className="absolute bottom-4 left-4 text-xs uppercase tracking-widest text-[#D4B15A] bg-[#083526]/90 px-3 py-1.5 border border-[#B88A2A]/40 rounded-md font-bold">
                   Architectural Visualization • Proposed Concept
                 </span>
               </div>
@@ -102,11 +104,11 @@ export default function CampusPage() {
       </section>
 
       {/* Biophilic Courtyards & Green Spaces */}
-      <section className="py-20 bg-[#FAF6EE] border-b border-[#E2DBD0]">
+      <section className="py-20 bg-[#E7EDE2] border-b border-[#DEDCCF]">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 order-2 lg:order-1">
-              <div className="relative aspect-16/10 w-full border-2 border-[#EAE3D7] shadow-xl overflow-hidden group">
+              <div className="relative aspect-16/10 w-full border-2 border-[#B88A2A]/40 shadow-[0_8px_30px_rgba(15,71,53,0.08)] rounded-2xl overflow-hidden group">
                 <Image
                   src={siteConfig.images.campus.courtyard}
                   alt="Swayambhoo Biophilic Courtyards - Proposed Visualization"
@@ -114,7 +116,7 @@ export default function CampusPage() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover group-hover:scale-103 transition-transform duration-700"
                 />
-                <span className="absolute bottom-4 left-4 text-xs uppercase tracking-widest text-[#C5A059] bg-[#0E241B]/90 px-3 py-1.5 border border-[#C5A059]/40">
+                <span className="absolute bottom-4 left-4 text-xs uppercase tracking-widest text-[#D4B15A] bg-[#083526]/90 px-3 py-1.5 border border-[#B88A2A]/40 rounded-md font-bold">
                   Biophilic Courtyard • Outdoor Learning Circles
                 </span>
               </div>
@@ -128,7 +130,7 @@ export default function CampusPage() {
                 description="Bringing light, air, and living greenery into every student corridor."
               />
 
-              <div className="space-y-4 text-sm sm:text-base text-[#181C20]/80 leading-relaxed font-sans">
+              <div className="space-y-4 text-sm sm:text-base text-[#26332E] leading-relaxed font-sans">
                 <p>
                   Research consistently proves that children learn faster and experience lower stress in spaces with ample natural daylight and views of living greenery. Swayambhoo&apos;s campus is organized around deep internal courtyards sheltered by architectural louvers.
                 </p>
@@ -138,16 +140,16 @@ export default function CampusPage() {
               </div>
 
               <div className="space-y-2 pt-2">
-                <div className="flex items-center gap-3 text-xs sm:text-sm text-[#14342B] font-medium">
-                  <Trees className="w-4 h-4 text-[#C5A059]" />
+                <div className="flex items-center gap-3 text-xs sm:text-sm text-[#0F4735] font-medium">
+                  <Trees className="w-4 h-4 text-[#B88A2A]" />
                   <span>Native shade trees adapted to the climatic conditions of Gaya</span>
                 </div>
-                <div className="flex items-center gap-3 text-xs sm:text-sm text-[#14342B] font-medium">
-                  <Sun className="w-4 h-4 text-[#C5A059]" />
+                <div className="flex items-center gap-3 text-xs sm:text-sm text-[#0F4735] font-medium">
+                  <Sun className="w-4 h-4 text-[#B88A2A]" />
                   <span>Deep window reveals preventing direct glare while maximizing daylight</span>
                 </div>
-                <div className="flex items-center gap-3 text-xs sm:text-sm text-[#14342B] font-medium">
-                  <Compass className="w-4 h-4 text-[#C5A059]" />
+                <div className="flex items-center gap-3 text-xs sm:text-sm text-[#0F4735] font-medium">
+                  <Compass className="w-4 h-4 text-[#B88A2A]" />
                   <span>Safe interior quads completely segregated from vehicular movement</span>
                 </div>
               </div>

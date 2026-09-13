@@ -22,7 +22,7 @@ export function WhySwayambhoo() {
   };
 
   return (
-    <section className="py-20 lg:py-28 bg-[#FAF6EE] border-b border-[#E2DBD0]">
+    <section className="py-20 lg:py-28 bg-[#FFFFFF] border-b border-[#DEDCCF]">
       <Container>
         <SectionHeading
           badge="Distinctive Excellence"
@@ -37,30 +37,30 @@ export function WhySwayambhoo() {
             return (
               <div
                 key={pillar.title}
-                className="bg-white p-8 border border-[#EAE3D7] hover:border-[#C5A059] transition-all duration-300 relative group flex flex-col justify-between shadow-xs hover:shadow-md"
+                className="bg-[#FBF9F2] p-8 border border-[#DEDCCF] hover:border-[#B88A2A] transition-all duration-300 relative group flex flex-col justify-between shadow-xs hover:shadow-xl hover:-translate-y-1"
               >
                 {/* Top Corner Index */}
                 <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 bg-[#F5EFEB] group-hover:bg-[#14342B] transition-colors duration-300 flex items-center justify-center text-[#14342B] group-hover:text-[#C5A059] border border-[#E2DBD0] group-hover:border-[#14342B]">
+                  <div className="w-12 h-12 bg-[#E7EDE2] group-hover:bg-[#0F4735] transition-colors duration-300 flex items-center justify-center text-[#0F4735] group-hover:text-[#D4B15A] border border-[#C9D8C8] group-hover:border-[#0F4735]">
                     <IconComponent className="w-6 h-6" />
                   </div>
-                  <span className="font-serif text-sm font-bold text-[#C5A059]">
+                  <span className="font-serif text-sm font-bold text-[#B88A2A]">
                     0{idx + 1}
                   </span>
                 </div>
 
                 <div>
-                  <h3 className="font-serif text-xl font-bold text-[#14342B] mb-3 group-hover:text-[#856627] transition-colors">
+                  <h3 className="font-serif text-xl font-bold text-[#0F4735] mb-3 group-hover:text-[#B88A2A] transition-colors">
                     {pillar.title}
                   </h3>
-                  <p className="text-sm text-[#181C20]/75 leading-relaxed font-sans">
+                  <p className="text-sm text-[#26332E] leading-relaxed font-sans">
                     {pillar.description}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-[#F5EFEB] flex items-center gap-2 text-xs font-semibold text-[#14342B] uppercase tracking-wider group-hover:text-[#C5A059] transition-colors">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059]" />
-                  <span>Swayambhoo Benchmark</span>
+                <div className="mt-6 pt-4 border-t border-[#DEDCCF]/70 flex items-center gap-2 text-xs font-semibold text-[#0F4735]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#B88A2A]" />
+                  <span>Institutional Standard</span>
                 </div>
               </div>
             );

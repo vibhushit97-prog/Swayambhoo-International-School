@@ -17,6 +17,7 @@ import {
   ExternalLink,
   Shield,
   X,
+  Briefcase,
 } from "lucide-react";
 
 interface AdminSidebarProps {
@@ -26,6 +27,7 @@ interface AdminSidebarProps {
 
 const navItems = [
   { label: "Dashboard", href: "/admin/dashboard", icon: LayoutDashboard },
+  { label: "Recruitment", href: "/admin/recruitment", icon: Briefcase },
   { label: "Admissions CRM", href: "/admin/admissions", icon: Users },
   { label: "Messages", href: "/admin/messages", icon: MessageSquare },
   { label: "School Profile", href: "/admin/school-profile", icon: Building },

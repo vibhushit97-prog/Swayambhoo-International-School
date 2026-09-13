@@ -17,22 +17,22 @@ export const metadata = constructMetadata({
 
 export default function ContactPage() {
   return (
-    <div className="bg-[#FDFBF7]">
+    <div className="bg-[#F7F3E8]">
       {/* Hero Header */}
-      <section className="bg-[#081611] text-[#FDFBF7] py-20 lg:py-24 relative overflow-hidden border-b-2 border-[#C5A059]">
+      <section className="bg-[#083526] text-[#F7F3E8] py-20 lg:py-24 relative overflow-hidden border-b-2 border-[#B88A2A]">
         <Container className="relative z-10">
           <div className="max-w-3xl space-y-4">
-            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#C5A059]">
+            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#D4B15A] font-bold">
               <Link href="/" className="hover:underline">Home</Link>
               <span>/</span>
               <span>Contact</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-[#FFFFFF]">
               Connect with Our School Administration
             </h1>
 
-            <p className="text-base sm:text-lg text-[#E8DFC8]/90 font-sans leading-relaxed">
+            <p className="text-base sm:text-lg text-[#F7F3E8] font-sans leading-relaxed">
               We welcome prospective parents, educationists, and community members to connect with our administrative desk or plan a visit to our campus.
             </p>
           </div>
@@ -40,7 +40,7 @@ export default function ContactPage() {
       </section>
 
       {/* Main Contact Grid */}
-      <section className="py-20 border-b border-[#E2DBD0]">
+      <section className="py-20 border-b border-[#DEDCCF]">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Left: Contact Info Card */}

@@ -36,21 +36,21 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variantClasses = {
       primary:
-        "bg-[#14342B] text-[#FDFBF7] border border-[#14342B] hover:bg-[#0E241B] hover:border-[#C5A059] shadow-sm hover:shadow-md",
+        "bg-[#0F4735] text-[#FFFFFF] border border-[#0F4735] hover:bg-[#083526] hover:border-[#B88A2A] shadow-xs hover:shadow-md",
       secondary:
-        "bg-transparent text-[#14342B] border border-[#14342B]/30 hover:border-[#14342B] hover:bg-[#14342B]/5",
+        "bg-transparent text-[#0F4735] border border-[#0F4735] hover:bg-[#0F4735] hover:text-[#FFFFFF] shadow-2xs",
       gold:
-        "bg-[#C5A059] text-[#0E241B] border border-[#C5A059] hover:bg-[#B38D45] hover:border-[#9C7A33] shadow-sm hover:shadow-md font-bold",
+        "bg-[#B88A2A] text-[#FFFFFF] border border-[#B88A2A] hover:bg-[#9C731F] hover:border-[#9C731F] shadow-xs hover:shadow-md font-bold",
       whatsapp:
-        "bg-[#25D366] text-white border border-[#25D366] hover:bg-[#20BA59] shadow-sm hover:shadow-md font-semibold",
+        "bg-[#25D366] text-white border border-[#25D366] hover:bg-[#20BA59] shadow-xs hover:shadow-md font-semibold",
       outline:
-        "bg-transparent text-[#C5A059] border border-[#C5A059] hover:bg-[#C5A059] hover:text-[#0E241B]",
+        "bg-transparent text-[#0F4735] border border-[#0F4735] hover:bg-[#0F4735] hover:text-[#FFFFFF]",
       ghost:
-        "bg-transparent text-[#14342B] hover:bg-[#14342B]/5 border border-transparent",
+        "bg-transparent text-[#0F4735] hover:bg-[#E7EDE2] border border-transparent",
     };
 
     const combinedClasses = cn(
-      "inline-flex items-center justify-center gap-2 rounded-none uppercase font-sans transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-[#C5A059]",
+      "inline-flex items-center justify-center gap-2 rounded-none uppercase font-sans transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-px focus-visible:outline-2 focus-visible:outline-[#B88A2A]",
       sizeClasses[size],
       variantClasses[variant],
       className

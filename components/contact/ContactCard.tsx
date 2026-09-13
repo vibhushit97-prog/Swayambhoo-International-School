@@ -5,65 +5,65 @@ import { MapPin, Phone, MessageCircle, Mail, Clock, ExternalLink } from "lucide-
 
 export function ContactCard() {
   return (
-    <div className="bg-[#FAF6EE] border border-[#EAE3D7] p-8 sm:p-10 space-y-6">
+    <div className="bg-[#FBF9F2] border border-[#DEDCCF] rounded-2xl p-8 sm:p-10 space-y-6 shadow-[0_4px_20px_rgba(15,71,53,0.04)]">
       <div>
-        <span className="text-xs font-bold uppercase tracking-widest text-[#C5A059] block mb-1">
+        <span className="text-xs font-bold uppercase tracking-widest text-[#B88A2A] block mb-1">
           Campus Information
         </span>
-        <h3 className="font-serif text-2xl font-bold text-[#14342B]">
+        <h3 className="font-serif text-2xl font-bold text-[#0F4735]">
           Swayambhoo International School
         </h3>
-        <p className="text-xs text-[#856627] uppercase tracking-wider mt-0.5">
+        <p className="text-xs text-[#B88A2A] uppercase tracking-wider font-semibold mt-0.5">
           Estd. 2024 • Wazirganj, Gaya
         </p>
       </div>
 
-      <div className="space-y-4 text-xs sm:text-sm text-[#181C20]/80">
-        <div className="flex items-start gap-3.5 pb-4 border-b border-[#E2DBD0]">
-          <MapPin className="w-5 h-5 text-[#C5A059] shrink-0 mt-0.5" />
+      <div className="space-y-4 text-xs sm:text-sm text-[#26332E]/80">
+        <div className="flex items-start gap-3.5 pb-4 border-b border-[#DEDCCF]">
+          <MapPin className="w-5 h-5 text-[#B88A2A] shrink-0 mt-0.5" />
           <div>
-            <strong className="block font-semibold text-[#14342B]">Campus Address</strong>
+            <strong className="block font-semibold text-[#0F4735]">Campus Address</strong>
             <span>{siteConfig.contact.address.full}</span>
-            <p className="text-[11px] text-[#64748B] mt-0.5">Near NH-82 Gaya-Nawada Highway</p>
+            <p className="text-[11px] text-[#26332E] mt-0.5">Near NH-82 Gaya-Nawada Highway</p>
           </div>
         </div>
 
-        <div className="flex items-start gap-3.5 pb-4 border-b border-[#E2DBD0]">
-          <Phone className="w-5 h-5 text-[#C5A059] shrink-0 mt-0.5" />
+        <div className="flex items-start gap-3.5 pb-4 border-b border-[#DEDCCF]">
+          <Phone className="w-5 h-5 text-[#B88A2A] shrink-0 mt-0.5" />
           <div>
-            <strong className="block font-semibold text-[#14342B]">Admissions Desk Phone</strong>
+            <strong className="block font-semibold text-[#0F4735]">Admissions Desk Phone</strong>
             <a
               href={`tel:${siteConfig.contact.phone.replace(/[^0-9+]/g, "")}`}
-              className="text-[#14342B] hover:text-[#C5A059] font-medium"
+              className="text-[#0F4735] hover:text-[#B88A2A] font-semibold"
             >
               {siteConfig.contact.phone}
             </a>
           </div>
         </div>
 
-        <div className="flex items-start gap-3.5 pb-4 border-b border-[#E2DBD0]">
+        <div className="flex items-start gap-3.5 pb-4 border-b border-[#DEDCCF]">
           <MessageCircle className="w-5 h-5 text-[#25D366] shrink-0 mt-0.5" />
           <div>
-            <strong className="block font-semibold text-[#14342B]">Official WhatsApp</strong>
+            <strong className="block font-semibold text-[#0F4735]">Official WhatsApp</strong>
             <a
               href={getWhatsAppUrl({ source: "contact" })}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#25D366] hover:underline font-medium"
+              className="text-[#0F4735] hover:text-[#B88A2A] hover:underline font-semibold"
             >
               {siteConfig.contact.whatsapp}
             </a>
-            <p className="text-[11px] text-[#64748B]">Instant chat with counselors</p>
+            <p className="text-[11px] text-[#26332E]">Instant chat with counselors</p>
           </div>
         </div>
 
-        <div className="flex items-start gap-3.5 pb-4 border-b border-[#E2DBD0]">
-          <Mail className="w-5 h-5 text-[#C5A059] shrink-0 mt-0.5" />
+        <div className="flex items-start gap-3.5 pb-4 border-b border-[#DEDCCF]">
+          <Mail className="w-5 h-5 text-[#B88A2A] shrink-0 mt-0.5" />
           <div>
-            <strong className="block font-semibold text-[#14342B]">Email Enquiries</strong>
+            <strong className="block font-semibold text-[#0F4735]">Email Enquiries</strong>
             <a
               href={`mailto:${siteConfig.contact.admissionsEmail}`}
-              className="text-[#14342B] hover:text-[#C5A059] font-medium"
+              className="text-[#0F4735] hover:text-[#B88A2A] font-medium"
             >
               {siteConfig.contact.admissionsEmail}
             </a>
@@ -71,11 +71,11 @@ export function ContactCard() {
         </div>
 
         <div className="flex items-start gap-3.5">
-          <Clock className="w-5 h-5 text-[#C5A059] shrink-0 mt-0.5" />
+          <Clock className="w-5 h-5 text-[#B88A2A] shrink-0 mt-0.5" />
           <div>
-            <strong className="block font-semibold text-[#14342B]">Administrative Hours</strong>
+            <strong className="block font-semibold text-[#0F4735]">Administrative Hours</strong>
             <span>{siteConfig.contact.officeHours}</span>
-            <p className="text-[11px] text-[#64748B]">Closed on Sundays and public holidays</p>
+            <p className="text-[11px] text-[#26332E]">Closed on Sundays and public holidays</p>
           </div>
         </div>
       </div>

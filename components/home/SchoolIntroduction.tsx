@@ -9,12 +9,12 @@ import { ArrowRight, CheckCircle2, Award } from "lucide-react";
 
 export function SchoolIntroduction() {
   return (
-    <section className="py-20 lg:py-28 bg-[#FDFBF7] text-[#181C20] border-b border-[#E2DBD0]">
+    <section className="py-20 lg:py-28 bg-[#F7F3E8] text-[#26332E] border-b border-[#DEDCCF]">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Visual Architectural Showcase */}
           <div className="lg:col-span-6 relative">
-            <div className="relative aspect-4/3 w-full border-2 border-[#C5A059] shadow-xl overflow-hidden group">
+            <div className="relative aspect-4/3 w-full border-2 border-[#B88A2A] shadow-xl overflow-hidden group">
               <Image
                 src={siteConfig.images.campus.main}
                 alt="Swayambhoo International School Campus Entrance - Proposed Concept"
@@ -25,12 +25,12 @@ export function SchoolIntroduction() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               
               {/* Overlay Badge */}
-              <div className="absolute bottom-4 left-4 right-4 p-4 bg-[#0E241B]/90 backdrop-blur-xs border border-[#C5A059]/40 text-white flex items-center justify-between">
+              <div className="absolute bottom-4 left-4 right-4 p-4 bg-[#083526]/90 backdrop-blur-xs border border-[#B88A2A]/40 text-white flex items-center justify-between">
                 <div>
-                  <p className="text-xs uppercase tracking-widest text-[#C5A059] font-semibold">
+                  <p className="text-xs uppercase tracking-widest text-[#D4B15A] font-semibold">
                     Campus Inscription
                   </p>
-                  <p className="font-serif text-sm sm:text-base font-bold text-[#FDFBF7]">
+                  <p className="font-serif text-sm sm:text-base font-bold text-[#F7F3E8]">
                     &ldquo;Discipline Today, Leadership Tomorrow&rdquo;
                   </p>
                 </div>
@@ -41,8 +41,8 @@ export function SchoolIntroduction() {
             </div>
 
             {/* Corner Decorative Accent */}
-            <div className="hidden sm:block absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-[#14342B] -z-10" />
-            <div className="hidden sm:block absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-[#C5A059] -z-10" />
+            <div className="hidden sm:block absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-[#0F4735] -z-10" />
+            <div className="hidden sm:block absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-[#B88A2A] -z-10" />
           </div>
 
           {/* Right Column: Narrative & Values */}
@@ -54,37 +54,37 @@ export function SchoolIntroduction() {
               description="Rooted in the timeless heritage of Gaya, Bihar and looking outward to the world, Swayambhoo International School redefines educational standards through balanced academic rigor, cutting-edge science, and ethical values."
             />
 
-            <div className="space-y-4 text-sm sm:text-base text-[#181C20]/80 leading-relaxed font-sans">
+            <div className="space-y-4 text-sm sm:text-base text-[#26332E] leading-relaxed font-sans">
               <p>
-                The name <strong className="text-[#14342B] font-semibold">&apos;Swayambhoo&apos;</strong> translates to self-manifesting — evoking the dormant genius present inside every child. Our pedagogical philosophy provides children with the environment, mentorship, and creative liberty to discover their own voice, purpose, and capability.
+                The name <strong className="text-[#0F4735] font-semibold">&apos;Swayambhoo&apos;</strong> translates to self-manifesting — evoking the dormant genius present inside every child. Our pedagogical philosophy provides children with the environment, mentorship, and creative liberty to discover their own voice, purpose, and capability.
               </p>
               <p>
-                Spanning distinct academic wings — the <span className="font-semibold text-[#14342B]">Knowledge Block</span> and <span className="font-semibold text-[#14342B]">Innovation Block</span> — our campus is planned around biophilic architecture that harnesses natural daylight, mature greenery, and calm acoustics.
+                Spanning distinct academic wings — the <span className="font-semibold text-[#0F4735]">Knowledge Block</span> and <span className="font-semibold text-[#0F4735]">Innovation Block</span> — our campus is planned around biophilic architecture that harnesses natural daylight, mature greenery, and calm acoustics.
               </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
               <div className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-5 h-5 text-[#C5A059] shrink-0 mt-0.5" />
-                <span className="text-xs sm:text-sm font-semibold text-[#14342B]">
+                <CheckCircle2 className="w-5 h-5 text-[#B88A2A] shrink-0 mt-0.5" />
+                <span className="text-xs sm:text-sm font-semibold text-[#0F4735]">
                   Co-educational K–12 / +2 Curriculum
                 </span>
               </div>
               <div className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-5 h-5 text-[#C5A059] shrink-0 mt-0.5" />
-                <span className="text-xs sm:text-sm font-semibold text-[#14342B]">
+                <CheckCircle2 className="w-5 h-5 text-[#B88A2A] shrink-0 mt-0.5" />
+                <span className="text-xs sm:text-sm font-semibold text-[#0F4735]">
                   Bespoke Student Uniform Identity
                 </span>
               </div>
               <div className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-5 h-5 text-[#C5A059] shrink-0 mt-0.5" />
-                <span className="text-xs sm:text-sm font-semibold text-[#14342B]">
+                <CheckCircle2 className="w-5 h-5 text-[#B88A2A] shrink-0 mt-0.5" />
+                <span className="text-xs sm:text-sm font-semibold text-[#0F4735]">
                   STEM Robotics & AI Discovery
                 </span>
               </div>
               <div className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-5 h-5 text-[#C5A059] shrink-0 mt-0.5" />
-                <span className="text-xs sm:text-sm font-semibold text-[#14342B]">
+                <CheckCircle2 className="w-5 h-5 text-[#B88A2A] shrink-0 mt-0.5" />
+                <span className="text-xs sm:text-sm font-semibold text-[#0F4735]">
                   Monitored Safe Transportation
                 </span>
               </div>

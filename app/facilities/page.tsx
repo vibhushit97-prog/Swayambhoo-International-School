@@ -140,22 +140,22 @@ export default async function FacilitiesPage() {
       : FACILITIES_DATA;
 
   return (
-    <div className="bg-[#FDFBF7]">
+    <div className="bg-[#F7F3E8]">
       {/* Hero Header */}
-      <section className="bg-[#081611] text-[#FDFBF7] py-20 lg:py-24 relative overflow-hidden border-b-2 border-[#C5A059]">
+      <section className="bg-[#083526] text-[#F7F3E8] py-20 lg:py-24 relative overflow-hidden border-b-2 border-[#B88A2A]">
         <Container className="relative z-10">
           <div className="max-w-3xl space-y-4">
-            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#C5A059]">
+            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#D4B15A] font-bold">
               <Link href="/" className="hover:underline">Home</Link>
               <span>/</span>
               <span>Facilities</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-[#FFFFFF]">
               World-Class Infrastructure & Learning Studios
             </h1>
 
-            <p className="text-base sm:text-lg text-[#E8DFC8]/90 font-sans leading-relaxed">
+            <p className="text-base sm:text-lg text-[#F7F3E8] font-sans leading-relaxed">
               Every facility at Swayambhoo is planned to stimulate curious young minds, support physical vitality, and provide an inspiring environment for K–12 excellence.
             </p>
           </div>
@@ -163,7 +163,7 @@ export default async function FacilitiesPage() {
       </section>
 
       {/* Facilities Detailed Listing */}
-      <section className="py-20">
+      <section className="py-20 bg-white border-b border-[#DEDCCF]">
         <Container>
           <SectionHeading
             badge="Institutional Amenities"

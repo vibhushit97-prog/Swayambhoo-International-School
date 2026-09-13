@@ -36,6 +36,32 @@ enum PublishStatus {
   ARCHIVED
 }
 
+enum ApplicationStatus {
+  NEW
+  UNDER_REVIEW
+  SHORTLISTED
+  INTERVIEW_SCHEDULED
+  INTERVIEW_CONFIRMED
+  RESCHEDULE_REQUESTED
+  INTERVIEW_COMPLETED
+  SELECTED
+  REJECTED
+}
+
+enum InterviewStatus {
+  SCHEDULED
+  CONFIRMED
+  RESCHEDULE_REQUESTED
+  COMPLETED
+  CANCELLED
+}
+
+enum EmailStatus {
+  PENDING
+  SENT
+  FAILED
+}
+
 // Admin Users
 model User {
   id        String   @id @default(cuid())
@@ -231,4 +257,235 @@ model MediaAsset {
   provider  String   @default("local")
   altText   String?
   createdAt DateTime @default(now())
+}
+
+// ==========================================
+// Phase 3: Recruitment & Career Portal
+// ==========================================
+
+model JobPosition {
+  id               String               @id @default(cuid())
+  title            String
+  code             String?
+  department       String               @default("Academics")
+  subjects         String[]
+  minQualification String
+  minExperience    Int                  @default(0)
+  vacancies        Int                  @default(1)
+  employmentType   String               @default("Full Time")
+  description      String?
+  responsibilities String?
+  requirements     String?
+  deadline         DateTime?
+  isActive         Boolean              @default(true)
+  displayOrder     Int                  @default(0)
+  createdAt        DateTime             @default(now())
+  updatedAt        DateTime             @updatedAt
+  applications     TeacherApplication[]
+
+  @@index([isActive])
+  @@index([department])
+}
+
+model RecruitmentSequence {
+  id            String   @id @default("recruitment_app_seq")
+  year          Int      @default(2026)
+  currentNumber Int      @default(0)
+  updatedAt     DateTime @updatedAt
+}
+
+model TeacherApplication {
+  id                   String                     @id @default(uuid())
+  applicationNumber    String                     @unique
+  fullName             String
+  dateOfBirth          DateTime
+  gender               String?
+  mobile               String
+  whatsapp             String?
+  email                String
+  address              String
+  city                 String?
+  state                String?
+  pincode              String?
+  profilePhoto         String?
+  positionId           String?
+  position             JobPosition?               @relation(fields: [positionId], references: [id], onDelete: SetNull)
+  otherPosition        String?
+  subject              String?
+  preferredClasses     String?
+  employmentType       String                     @default("Full Time")
+  expectedSalary       String?
+  currentSalary        String?
+  noticePeriod         String?
+  willingToRelocate    Boolean                    @default(false)
+  totalExperienceYears Float                      @default(0)
+  personalStatement    String?
+  teachingPhilosophy   String?
+  status               ApplicationStatus          @default(NEW)
+  createdAt            DateTime                   @default(now())
+  updatedAt            DateTime                   @updatedAt
+  educationRecords     EducationRecord[]
+  experienceRecords    ExperienceRecord[]
+  skills               Skill[]
+  languages            LanguageSkill[]
+  documents            ApplicationDocument[]
+  statusHistory        ApplicationStatusHistory[]
+  interviews           Interview[]
+  adminNotes           AdminNote[]
+  emailNotifications   EmailNotification[]
+
+  @@index([applicationNumber])
+  @@index([email])
+  @@index([mobile])
+  @@index([status])
+  @@index([positionId])
+  @@index([createdAt])
+}
+
+model EducationRecord {
+  id                 String             @id @default(cuid())
+  applicationId      String
+  application        TeacherApplication @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  qualification      String
+  otherQualification String?
+  institution        String
+  boardOrUniversity  String
+  year               Int
+  percentageOrCgpa   String
+  specialization     String?
+  createdAt          DateTime           @default(now())
+
+  @@index([applicationId])
+}
+
+model ExperienceRecord {
+  id               String             @id @default(cuid())
+  applicationId    String
+  application      TeacherApplication @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  institution      String
+  designation      String
+  subject          String?
+  classesTaught    String?
+  startDate        DateTime
+  endDate          DateTime?
+  currentlyWorking Boolean            @default(false)
+  responsibilities String?
+  createdAt        DateTime           @default(now())
+
+  @@index([applicationId])
+}
+
+model Skill {
+  id            String             @id @default(cuid())
+  applicationId String
+  application   TeacherApplication @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  skillName     String
+  createdAt     DateTime           @default(now())
+
+  @@index([applicationId])
+  @@index([skillName])
+}
+
+model LanguageSkill {
+  id            String             @id @default(cuid())
+  applicationId String
+  application   TeacherApplication @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  language      String
+  proficiency   String
+  createdAt     DateTime           @default(now())
+
+  @@index([applicationId])
+}
+
+model ApplicationDocument {
+  id            String             @id @default(cuid())
+  applicationId String
+  application   TeacherApplication @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  documentType  String
+  filename      String
+  storageKey    String
+  mimeType      String
+  fileSize      Int
+  createdAt     DateTime           @default(now())
+
+  @@index([applicationId])
+}
+
+model ApplicationStatusHistory {
+  id             String             @id @default(cuid())
+  applicationId  String
+  application    TeacherApplication @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  previousStatus ApplicationStatus?
+  newStatus      ApplicationStatus
+  changedBy      String?
+  reason         String?
+  createdAt      DateTime           @default(now())
+
+  @@index([applicationId])
+}
+
+model Interview {
+  id                     String                   @id @default(cuid())
+  applicationId          String
+  application            TeacherApplication       @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  interviewDate          DateTime
+  interviewTime          String
+  interviewMode          String
+  venue                  String?
+  meetingLink            String?
+  interviewer            String?
+  additionalInstructions String?
+  confirmationToken      String                   @unique
+  status                 InterviewStatus          @default(SCHEDULED)
+  rescheduleReason       String?
+  scheduledBy            String?
+  createdAt              DateTime                 @default(now())
+  updatedAt              DateTime                 @updatedAt
+  statusHistory          InterviewStatusHistory[]
+
+  @@index([applicationId])
+  @@index([confirmationToken])
+  @@index([status])
+}
+
+model InterviewStatusHistory {
+  id             String          @id @default(cuid())
+  interviewId    String
+  interview      Interview       @relation(fields: [interviewId], references: [id], onDelete: Cascade)
+  previousStatus InterviewStatus?
+  newStatus      InterviewStatus
+  changedBy      String?
+  notes          String?
+  createdAt      DateTime        @default(now())
+
+  @@index([interviewId])
+}
+
+model EmailNotification {
+  id            String              @id @default(cuid())
+  applicationId String?
+  application   TeacherApplication? @relation(fields: [applicationId], references: [id], onDelete: SetNull)
+  recipient     String
+  subject       String
+  emailType     String
+  status        EmailStatus         @default(PENDING)
+  attemptCount  Int                 @default(0)
+  errorMessage  String?
+  metadata      Json?
+  sentAt        DateTime?
+  createdAt     DateTime            @default(now())
+
+  @@index([applicationId])
+  @@index([status])
+}
+
+model AdminNote {
+  id            String             @id @default(cuid())
+  applicationId String
+  application   TeacherApplication @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  adminName     String
+  content       String
+  createdAt     DateTime           @default(now())
+
+  @@index([applicationId])
 }

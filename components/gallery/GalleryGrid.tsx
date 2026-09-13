@@ -32,10 +32,10 @@ export function GalleryGrid({ initialItems }: GalleryGridProps) {
           <div
             key={item.id}
             onClick={() => setLightboxIndex(idx)}
-            className="group relative bg-white border border-[#EAE3D7] hover:border-[#C5A059] shadow-xs hover:shadow-md transition-all duration-300 cursor-pointer overflow-hidden flex flex-col justify-between"
+            className="group relative bg-[#FBF9F2] border border-[#DEDCCF] hover:border-[#B88A2A] rounded-2xl shadow-[0_4px_20px_rgba(15,71,53,0.04)] hover:shadow-lg transition-all duration-300 cursor-pointer overflow-hidden flex flex-col justify-between"
           >
             {/* Image Container */}
-            <div className="relative aspect-4/3 w-full bg-[#FAF6EE] overflow-hidden">
+            <div className="relative aspect-4/3 w-full bg-[#E7EDE2] overflow-hidden">
               <Image
                 src={item.src}
                 alt={item.alt}
@@ -45,22 +45,22 @@ export function GalleryGrid({ initialItems }: GalleryGridProps) {
               />
               
               {/* Subtle hover overlay */}
-              <div className="absolute inset-0 bg-[#0E241B]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <div className="w-10 h-10 bg-white/90 text-[#14342B] flex items-center justify-center shadow-lg border border-white">
+              <div className="absolute inset-0 bg-[#083526]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="w-10 h-10 bg-white/95 text-[#083526] rounded-full flex items-center justify-center shadow-lg border border-[#B88A2A]">
                   <Maximize2 className="w-5 h-5" />
                 </div>
               </div>
 
               {/* Tag Badge */}
               <div className="absolute top-3 left-3">
-                <span className="bg-[#081611]/85 text-[#C5A059] text-[10px] uppercase tracking-widest font-semibold px-2 py-0.5 border border-[#C5A059]/40">
+                <span className="bg-[#083526]/90 text-[#D4B15A] text-[10px] uppercase tracking-widest font-bold px-2.5 py-1 border border-[#B88A2A]/40 rounded-md shadow-xs">
                   {item.categoryLabel}
                 </span>
               </div>
 
               {item.isConceptual && (
                 <div className="absolute top-3 right-3">
-                  <span className="bg-black/60 text-white/80 text-[9px] uppercase tracking-wider px-2 py-0.5 backdrop-blur-xs">
+                  <span className="bg-black/60 text-white/90 text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-sm backdrop-blur-xs font-medium">
                     Concept
                   </span>
                 </div>
@@ -68,11 +68,11 @@ export function GalleryGrid({ initialItems }: GalleryGridProps) {
             </div>
 
             {/* Description Card Footer */}
-            <div className="p-4 border-t border-[#F5EFEB]">
-              <h4 className="font-serif font-bold text-base text-[#14342B] mb-1 group-hover:text-[#856627] transition-colors">
+            <div className="p-4 border-t border-[#DEDCCF]">
+              <h4 className="font-serif font-bold text-base text-[#0F4735] mb-1 group-hover:text-[#B88A2A] transition-colors">
                 {item.title}
               </h4>
-              <p className="text-xs text-[#181C20]/70 line-clamp-2 leading-relaxed font-sans">
+              <p className="text-xs text-[#26332E] line-clamp-2 leading-relaxed font-sans">
                 {item.description}
               </p>
             </div>
@@ -81,8 +81,8 @@ export function GalleryGrid({ initialItems }: GalleryGridProps) {
       </div>
 
       {filteredItems.length === 0 && (
-        <div className="text-center py-16 bg-[#FAF6EE] border border-[#E2DBD0]">
-          <p className="text-sm text-[#181C20]/70">No images found in this category.</p>
+        <div className="text-center py-16 bg-[#FBF9F2] border border-[#DEDCCF] rounded-2xl">
+          <p className="text-sm text-[#26332E]">No images found in this category.</p>
         </div>
       )}
 

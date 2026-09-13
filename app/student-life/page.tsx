@@ -17,22 +17,22 @@ export const metadata = constructMetadata({
 
 export default function StudentLifePage() {
   return (
-    <div className="bg-[#FDFBF7]">
+    <div className="bg-[#F7F3E8]">
       {/* Hero Header */}
-      <section className="bg-[#081611] text-[#FDFBF7] py-20 lg:py-24 relative overflow-hidden border-b-2 border-[#C5A059]">
+      <section className="bg-[#083526] text-[#F7F3E8] py-20 lg:py-24 relative overflow-hidden border-b-2 border-[#B88A2A]">
         <Container className="relative z-10">
           <div className="max-w-3xl space-y-4">
-            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#C5A059]">
+            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#D4B15A] font-bold">
               <Link href="/" className="hover:underline">Home</Link>
               <span>/</span>
               <span>Student Life</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-[#FFFFFF]">
               Character, Community & Uniform Identity
             </h1>
 
-            <p className="text-base sm:text-lg text-[#E8DFC8]/90 font-sans leading-relaxed">
+            <p className="text-base sm:text-lg text-[#F7F3E8] font-sans leading-relaxed">
               Student life at Swayambhoo is a rich tapestry of sportsmanship, performing arts, leadership appointments, and shared institutional pride.
             </p>
           </div>
@@ -40,7 +40,7 @@ export default function StudentLifePage() {
       </section>
 
       {/* Official Uniform Showcase */}
-      <section className="py-20 border-b border-[#E2DBD0]">
+      <section className="py-20 border-b border-[#DEDCCF] bg-white">
         <Container>
           <SectionHeading
             badge="Institutional Attire"
@@ -50,8 +50,8 @@ export default function StudentLifePage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-12">
             {/* Boys Uniform Showcase */}
-            <div className="bg-white border border-[#EAE3D7] p-6 sm:p-8 shadow-sm">
-              <div className="relative aspect-4/3 w-full bg-[#FAF6EE] border border-[#E2DBD0] overflow-hidden mb-6">
+            <div className="bg-[#FBF9F2] border border-[#DEDCCF] rounded-2xl p-6 sm:p-8 shadow-[0_4px_20px_rgba(15,71,53,0.04)]">
+              <div className="relative aspect-4/3 w-full bg-white border border-[#DEDCCF] rounded-xl overflow-hidden mb-6">
                 <Image
                   src={siteConfig.images.uniforms.boys}
                   alt="Swayambhoo Official Boys Uniform Specification"
@@ -62,30 +62,30 @@ export default function StudentLifePage() {
               </div>
 
               <div className="space-y-4">
-                <div className="flex items-center justify-between pb-3 border-b border-[#F5EFEB]">
-                  <h3 className="font-serif text-xl font-bold text-[#14342B]">
+                <div className="flex items-center justify-between pb-3 border-b border-[#DEDCCF]">
+                  <h3 className="font-serif text-xl font-bold text-[#0F4735]">
                     Boys Formal & Daily Uniform
                   </h3>
-                  <span className="text-[11px] font-semibold text-[#856627] bg-[#FAF6EE] px-2.5 py-1 border border-[#C5A059]/40">
+                  <span className="text-[11px] font-bold text-[#B88A2A] bg-[#EFE2BC]/50 px-2.5 py-1 border border-[#D4B15A] rounded-md">
                     High Quality Cotton
                   </span>
                 </div>
 
-                <div className="space-y-2 text-xs sm:text-sm text-[#181C20]/80">
+                <div className="space-y-2 text-xs sm:text-sm text-[#26332E]">
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059] mt-2 shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B88A2A] mt-2 shrink-0" />
                     <span><strong>Shirt:</strong> Crisp white cotton with brown and gold dual-stripe collar and cuff tipping.</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059] mt-2 shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B88A2A] mt-2 shrink-0" />
                     <span><strong>Branding:</strong> Vertical gold lettering &lsquo;SWAYAMBHOO&rsquo; along the shirt placket for distinctive identity.</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059] mt-2 shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B88A2A] mt-2 shrink-0" />
                     <span><strong>Pocket Emblem:</strong> Embroidered sacred flame crest with vertical brown & gold accent stripe.</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059] mt-2 shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B88A2A] mt-2 shrink-0" />
                     <span><strong>Trousers:</strong> Tailored chocolate brown formal trousers with clean pleating.</span>
                   </div>
                 </div>
@@ -93,8 +93,8 @@ export default function StudentLifePage() {
             </div>
 
             {/* Girls Uniform Showcase */}
-            <div className="bg-white border border-[#EAE3D7] p-6 sm:p-8 shadow-sm">
-              <div className="relative aspect-4/3 w-full bg-[#FAF6EE] border border-[#E2DBD0] overflow-hidden mb-6">
+            <div className="bg-[#FBF9F2] border border-[#DEDCCF] rounded-2xl p-6 sm:p-8 shadow-[0_4px_20px_rgba(15,71,53,0.04)]">
+              <div className="relative aspect-4/3 w-full bg-white border border-[#DEDCCF] rounded-xl overflow-hidden mb-6">
                 <Image
                   src={siteConfig.images.uniforms.girls}
                   alt="Swayambhoo Official Girls Uniform Specification - Skirt and Kurta"
@@ -105,30 +105,30 @@ export default function StudentLifePage() {
               </div>
 
               <div className="space-y-4">
-                <div className="flex items-center justify-between pb-3 border-b border-[#F5EFEB]">
-                  <h3 className="font-serif text-xl font-bold text-[#14342B]">
+                <div className="flex items-center justify-between pb-3 border-b border-[#DEDCCF]">
+                  <h3 className="font-serif text-xl font-bold text-[#0F4735]">
                     Girls Skirt & Kurta Uniforms
                   </h3>
-                  <span className="text-[11px] font-semibold text-[#856627] bg-[#FAF6EE] px-2.5 py-1 border border-[#C5A059]/40">
+                  <span className="text-[11px] font-bold text-[#B88A2A] bg-[#EFE2BC]/50 px-2.5 py-1 border border-[#D4B15A] rounded-md">
                     High Quality Cotton
                   </span>
                 </div>
 
-                <div className="space-y-2 text-xs sm:text-sm text-[#181C20]/80">
+                <div className="space-y-2 text-xs sm:text-sm text-[#26332E]">
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059] mt-2 shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B88A2A] mt-2 shrink-0" />
                     <span><strong>Skirt Uniform:</strong> White tailored shirt with brown pleated skirt bordered with gold trim.</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059] mt-2 shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B88A2A] mt-2 shrink-0" />
                     <span><strong>Kurta Uniform:</strong> Contemporary mandarin-collar white kurta with gold vertical typography and brown salwar.</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059] mt-2 shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B88A2A] mt-2 shrink-0" />
                     <span><strong>Pocket Emblem:</strong> Finely stitched golden flame monogram on chest pocket.</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059] mt-2 shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B88A2A] mt-2 shrink-0" />
                     <span><strong>Material:</strong> 100% breathable natural cotton suited to Bihar&apos;s climate throughout the seasons.</span>
                   </div>
                 </div>
@@ -137,25 +137,25 @@ export default function StudentLifePage() {
           </div>
 
           {/* Color Palette Indicators */}
-          <div className="p-6 bg-white border border-[#E2DBD0] flex flex-wrap items-center justify-around gap-6 text-center">
+          <div className="p-6 bg-[#FBF9F2] border border-[#DEDCCF] rounded-2xl flex flex-wrap items-center justify-around gap-6 text-center shadow-[0_4px_20px_rgba(15,71,53,0.03)]">
             <div className="flex items-center gap-3">
-              <span className="w-6 h-6 rounded-full bg-white border-2 border-[#E2DBD0] shadow-xs" />
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#14342B]">Crisp White (Purity & Clarity)</span>
+              <span className="w-6 h-6 rounded-full bg-white border-2 border-[#DEDCCF] shadow-xs" />
+              <span className="text-xs font-bold uppercase tracking-wider text-[#0F4735]">Crisp White (Purity & Clarity)</span>
             </div>
             <div className="flex items-center gap-3">
               <span className="w-6 h-6 rounded-full bg-[#4A2E1B] border-2 border-[#362113] shadow-xs" />
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#14342B]">Chocolate Brown (Grounded Discipline)</span>
+              <span className="text-xs font-bold uppercase tracking-wider text-[#0F4735]">Chocolate Brown (Grounded Discipline)</span>
             </div>
             <div className="flex items-center gap-3">
-              <span className="w-6 h-6 rounded-full bg-[#C5A059] border-2 border-[#9C7A33] shadow-xs" />
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#14342B]">Muted Gold (Excellence & Nobility)</span>
+              <span className="w-6 h-6 rounded-full bg-[#B88A2A] border-2 border-[#9C7A33] shadow-xs" />
+              <span className="text-xs font-bold uppercase tracking-wider text-[#0F4735]">Muted Gold (Excellence & Nobility)</span>
             </div>
           </div>
         </Container>
       </section>
 
       {/* House System */}
-      <section className="py-20 bg-[#FAF6EE] border-b border-[#E2DBD0]">
+      <section className="py-20 bg-[#E7EDE2] border-b border-[#DEDCCF]">
         <Container>
           <SectionHeading
             badge="Healthy Fellowship"
@@ -164,34 +164,34 @@ export default function StudentLifePage() {
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white p-6 border border-[#EAE3D7] border-t-4 border-t-[#14342B]">
-              <h3 className="font-serif font-bold text-lg text-[#14342B] mb-2">Prithvi (Earth)</h3>
-              <p className="text-xs text-[#856627] font-semibold uppercase tracking-wider mb-2">Discipline & Resilience</p>
-              <p className="text-xs text-[#181C20]/75 leading-relaxed font-sans">
+            <div className="bg-white p-6 border border-[#DEDCCF] rounded-2xl border-t-4 border-t-[#083526] shadow-[0_4px_20px_rgba(15,71,53,0.04)]">
+              <h3 className="font-serif font-bold text-lg text-[#0F4735] mb-1">Prithvi (Earth)</h3>
+              <p className="text-xs text-[#B88A2A] font-bold uppercase tracking-wider mb-2">Discipline & Resilience</p>
+              <p className="text-xs text-[#26332E] leading-relaxed font-sans">
                 Embodying stability, ethical groundedness, environmental stewardship, and persistence in physical and academic endeavors.
               </p>
             </div>
 
-            <div className="bg-white p-6 border border-[#EAE3D7] border-t-4 border-t-[#C5A059]">
-              <h3 className="font-serif font-bold text-lg text-[#14342B] mb-2">Agni (Fire)</h3>
-              <p className="text-xs text-[#856627] font-semibold uppercase tracking-wider mb-2">Passion & Courage</p>
-              <p className="text-xs text-[#181C20]/75 leading-relaxed font-sans">
+            <div className="bg-white p-6 border border-[#DEDCCF] rounded-2xl border-t-4 border-t-[#B88A2A] shadow-[0_4px_20px_rgba(15,71,53,0.04)]">
+              <h3 className="font-serif font-bold text-lg text-[#0F4735] mb-1">Agni (Fire)</h3>
+              <p className="text-xs text-[#B88A2A] font-bold uppercase tracking-wider mb-2">Passion & Courage</p>
+              <p className="text-xs text-[#26332E] leading-relaxed font-sans">
                 Representing the intellectual spark, boldness in public debate, innovative research, and unstoppable athletic zeal.
               </p>
             </div>
 
-            <div className="bg-white p-6 border border-[#EAE3D7] border-t-4 border-t-[#255D4E]">
-              <h3 className="font-serif font-bold text-lg text-[#14342B] mb-2">Jal (Water)</h3>
-              <p className="text-xs text-[#856627] font-semibold uppercase tracking-wider mb-2">Adaptability & Empathy</p>
-              <p className="text-xs text-[#181C20]/75 leading-relaxed font-sans">
+            <div className="bg-white p-6 border border-[#DEDCCF] rounded-2xl border-t-4 border-t-[#2D654E] shadow-[0_4px_20px_rgba(15,71,53,0.04)]">
+              <h3 className="font-serif font-bold text-lg text-[#0F4735] mb-1">Jal (Water)</h3>
+              <p className="text-xs text-[#B88A2A] font-bold uppercase tracking-wider mb-2">Adaptability & Empathy</p>
+              <p className="text-xs text-[#26332E] leading-relaxed font-sans">
                 Fostering fluid problem solving, emotional maturity, fine arts excellence, and community service initiatives.
               </p>
             </div>
 
-            <div className="bg-white p-6 border border-[#EAE3D7] border-t-4 border-t-[#4A2E1B]">
-              <h3 className="font-serif font-bold text-lg text-[#14342B] mb-2">Vayu (Air)</h3>
-              <p className="text-xs text-[#856627] font-semibold uppercase tracking-wider mb-2">Freedom & Vision</p>
-              <p className="text-xs text-[#181C20]/75 leading-relaxed font-sans">
+            <div className="bg-white p-6 border border-[#DEDCCF] rounded-2xl border-t-4 border-t-[#4A2E1B] shadow-[0_4px_20px_rgba(15,71,53,0.04)]">
+              <h3 className="font-serif font-bold text-lg text-[#0F4735] mb-1">Vayu (Air)</h3>
+              <p className="text-xs text-[#B88A2A] font-bold uppercase tracking-wider mb-2">Freedom & Vision</p>
+              <p className="text-xs text-[#26332E] leading-relaxed font-sans">
                 Symbolizing boundless imagination, scientific curiosity, strategic agility on the playing field, and visionary leadership.
               </p>
             </div>

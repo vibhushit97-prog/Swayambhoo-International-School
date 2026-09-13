@@ -53,14 +53,14 @@ export function ContactForm() {
 
   if (successMessage) {
     return (
-      <div className="bg-white border-2 border-[#C5A059] p-8 text-center space-y-4">
-        <div className="w-12 h-12 bg-[#14342B] text-[#C5A059] mx-auto flex items-center justify-center border border-[#C5A059]">
+      <div className="bg-[#FBF9F2] border-2 border-[#B88A2A] rounded-2xl p-8 text-center space-y-4 shadow-[0_8px_30px_rgba(15,71,53,0.06)]">
+        <div className="w-12 h-12 bg-[#083526] text-[#D4B15A] mx-auto flex items-center justify-center border border-[#B88A2A] rounded-xl">
           <CheckCircle2 className="w-8 h-8" />
         </div>
-        <h3 className="font-serif text-xl font-bold text-[#14342B]">
+        <h3 className="font-serif text-xl font-bold text-[#0F4735]">
           Message Dispatched Successfully
         </h3>
-        <p className="text-xs sm:text-sm text-[#181C20]/75 max-w-sm mx-auto">
+        <p className="text-xs sm:text-sm text-[#26332E] max-w-sm mx-auto">
           Thank you for getting in touch. Our administrative office will review your enquiry and respond promptly.
         </p>
         <Button variant="secondary" size="sm" onClick={() => setSuccessMessage(false)}>
@@ -71,18 +71,18 @@ export function ContactForm() {
   }
 
   return (
-    <div className="bg-white border border-[#EAE3D7] p-8 sm:p-10 shadow-sm">
-      <div className="mb-6 pb-4 border-b border-[#F5EFEB]">
-        <h3 className="font-serif text-2xl font-bold text-[#14342B]">
+    <div className="bg-[#FBF9F2] border border-[#DEDCCF] rounded-2xl p-8 sm:p-10 shadow-[0_8px_30px_rgba(15,71,53,0.06)]">
+      <div className="mb-6 pb-4 border-b border-[#DEDCCF]">
+        <h3 className="font-serif text-2xl font-bold text-[#0F4735]">
           Send Us a Direct Message
         </h3>
-        <p className="text-xs text-[#181C20]/75 mt-1">
+        <p className="text-xs text-[#26332E] mt-1">
           Have an administrative query, partnership question, or feedback? Drop us a note below.
         </p>
       </div>
 
       {submitError && (
-        <div className="mb-4 p-3 bg-red-50 border border-red-200 text-red-700 text-xs flex items-center gap-2">
+        <div className="mb-4 p-3 bg-red-50 border border-red-200 text-red-700 text-xs flex items-center gap-2 rounded-lg">
           <AlertCircle className="w-4 h-4 flex-shrink-0 text-red-600" />
           <span>{submitError}</span>
         </div>
@@ -92,7 +92,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="fullName"
-            className="block text-xs font-bold uppercase tracking-wider text-[#14342B] mb-1.5"
+            className="block text-xs font-bold uppercase tracking-wider text-[#0F4735] mb-1.5"
           >
             Your Full Name <span className="text-red-600">*</span>
           </label>
@@ -101,8 +101,8 @@ export function ContactForm() {
             type="text"
             {...register("fullName")}
             placeholder="e.g. Dr. Sunita Verma"
-            className={`w-full px-4 py-2.5 text-sm bg-[#FAF6EE] border focus:bg-white focus:outline-none focus:border-[#C5A059] ${
-              errors.fullName ? "border-red-500" : "border-[#E2DBD0]"
+            className={`w-full px-4 py-2.5 text-sm bg-white border rounded-lg focus:outline-none focus:border-[#B88A2A] text-[#26332E] ${
+              errors.fullName ? "border-red-500" : "border-[#DEDCCF]"
             }`}
           />
           {errors.fullName && (
@@ -114,7 +114,7 @@ export function ContactForm() {
           <div>
             <label
               htmlFor="phone"
-              className="block text-xs font-bold uppercase tracking-wider text-[#14342B] mb-1.5"
+              className="block text-xs font-bold uppercase tracking-wider text-[#0F4735] mb-1.5"
             >
               Phone Number <span className="text-red-600">*</span>
             </label>
@@ -123,8 +123,8 @@ export function ContactForm() {
               type="tel"
               {...register("phone")}
               placeholder="e.g. 9876543210"
-              className={`w-full px-4 py-2.5 text-sm bg-[#FAF6EE] border focus:bg-white focus:outline-none focus:border-[#C5A059] ${
-                errors.phone ? "border-red-500" : "border-[#E2DBD0]"
+              className={`w-full px-4 py-2.5 text-sm bg-white border rounded-lg focus:outline-none focus:border-[#B88A2A] text-[#26332E] ${
+                errors.phone ? "border-red-500" : "border-[#DEDCCF]"
               }`}
             />
             {errors.phone && (
@@ -135,7 +135,7 @@ export function ContactForm() {
           <div>
             <label
               htmlFor="email"
-              className="block text-xs font-bold uppercase tracking-wider text-[#14342B] mb-1.5"
+              className="block text-xs font-bold uppercase tracking-wider text-[#0F4735] mb-1.5"
             >
               Email Address <span className="text-red-600">*</span>
             </label>
@@ -144,8 +144,8 @@ export function ContactForm() {
               type="email"
               {...register("email")}
               placeholder="e.g. name@domain.com"
-              className={`w-full px-4 py-2.5 text-sm bg-[#FAF6EE] border focus:bg-white focus:outline-none focus:border-[#C5A059] ${
-                errors.email ? "border-red-500" : "border-[#E2DBD0]"
+              className={`w-full px-4 py-2.5 text-sm bg-white border rounded-lg focus:outline-none focus:border-[#B88A2A] text-[#26332E] ${
+                errors.email ? "border-red-500" : "border-[#DEDCCF]"
               }`}
             />
             {errors.email && (
@@ -157,7 +157,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="subject"
-            className="block text-xs font-bold uppercase tracking-wider text-[#14342B] mb-1.5"
+            className="block text-xs font-bold uppercase tracking-wider text-[#0F4735] mb-1.5"
           >
             Subject <span className="text-red-600">*</span>
           </label>
@@ -166,8 +166,8 @@ export function ContactForm() {
             type="text"
             {...register("subject")}
             placeholder="e.g. Campus Visit Request for Next Week"
-            className={`w-full px-4 py-2.5 text-sm bg-[#FAF6EE] border focus:bg-white focus:outline-none focus:border-[#C5A059] ${
-              errors.subject ? "border-red-500" : "border-[#E2DBD0]"
+            className={`w-full px-4 py-2.5 text-sm bg-white border rounded-lg focus:outline-none focus:border-[#B88A2A] text-[#26332E] ${
+              errors.subject ? "border-red-500" : "border-[#DEDCCF]"
             }`}
           />
           {errors.subject && (
@@ -178,7 +178,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="message"
-            className="block text-xs font-bold uppercase tracking-wider text-[#14342B] mb-1.5"
+            className="block text-xs font-bold uppercase tracking-wider text-[#0F4735] mb-1.5"
           >
             Your Message <span className="text-red-600">*</span>
           </label>
@@ -187,8 +187,8 @@ export function ContactForm() {
             rows={4}
             {...register("message")}
             placeholder="Please write your detailed enquiry here..."
-            className={`w-full px-4 py-2.5 text-sm bg-[#FAF6EE] border focus:bg-white focus:outline-none focus:border-[#C5A059] ${
-              errors.message ? "border-red-500" : "border-[#E2DBD0]"
+            className={`w-full px-4 py-2.5 text-sm bg-white border rounded-lg focus:outline-none focus:border-[#B88A2A] text-[#26332E] ${
+              errors.message ? "border-red-500" : "border-[#DEDCCF]"
             }`}
           />
           {errors.message && (
@@ -201,7 +201,7 @@ export function ContactForm() {
             type="submit"
             variant="primary"
             disabled={isSubmitting}
-            className="w-full justify-center text-xs"
+            className="w-full justify-center text-xs py-3"
             leftIcon={isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : undefined}
           >
             {isSubmitting ? "Sending Message..." : "Submit Message"}

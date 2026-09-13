@@ -32,13 +32,13 @@ export function SectionHeading({
       {badge && (
         <div
           className={cn(
-            "inline-flex items-center gap-2 mb-3.5 px-3 py-1 text-xs font-semibold tracking-widest uppercase border",
+            "inline-flex items-center gap-2 mb-3.5 px-3.5 py-1 text-xs font-bold tracking-widest uppercase border",
             isDark
-              ? "bg-[#1E4D40]/60 text-[#C5A059] border-[#C5A059]/40"
-              : "bg-[#F5EFEB] text-[#14342B] border-[#E2DBD0]"
+              ? "bg-[#083526] text-[#D4B15A] border-[#B88A2A]/40"
+              : "bg-[#E7EDE2] text-[#0F4735] border-[#C9D8C8]"
           )}
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059]" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#B88A2A]" />
           <span>{badge}</span>
         </div>
       )}
@@ -46,29 +46,29 @@ export function SectionHeading({
       <h2
         className={cn(
           "text-3xl sm:text-4xl lg:text-5xl font-serif font-bold tracking-tight mb-4",
-          isDark ? "text-[#FDFBF7]" : "text-[#14342B]"
+          isDark ? "text-white" : "text-[#0F4735]"
         )}
       >
         {title}
       </h2>
 
-      {/* Architectural decorative line */}
+      {/* Architectural decorative line (──── ◇ ────) */}
       <div
         className={cn(
           "flex items-center gap-2 my-4",
           isCenter ? "justify-center" : "justify-start"
         )}
       >
-        <span className="w-8 h-[2px] bg-[#C5A059]" />
-        <span className="w-2 h-2 rotate-45 border border-[#C5A059]" />
-        <span className="w-8 h-[2px] bg-[#C5A059]" />
+        <span className="w-10 h-[1px] bg-[#B88A2A]" />
+        <span className="w-1.5 h-1.5 rotate-45 border border-[#B88A2A] bg-[#B88A2A]" />
+        <span className="w-10 h-[1px] bg-[#B88A2A]" />
       </div>
 
       {description && (
         <p
           className={cn(
             "text-base sm:text-lg leading-relaxed font-sans",
-            isDark ? "text-[#E8DFC8]/90" : "text-[#181C20]/80"
+            isDark ? "text-[#F7F3E8]" : "text-[#26332E]"
           )}
         >
           {description}

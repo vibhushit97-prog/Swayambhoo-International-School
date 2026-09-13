@@ -630,9 +630,200 @@ async function main() {
       create: s,
     });
   }
-  console.log(`✅ Site Settings seeded.`);
+  // 10. Initial Recruitment Positions & Sequence
+  await prisma.recruitmentSequence.upsert({
+    where: { id: "recruitment_app_seq" },
+    update: {},
+    create: {
+      id: "recruitment_app_seq",
+      year: 2026,
+      currentNumber: 0,
+    },
+  });
+  console.log(`✅ Recruitment Sequence initialized.`);
 
-  console.log("🎉 All Phase 2 foundation content seeded successfully!");
+  const samplePositions = [
+    {
+      title: "PGT Mathematics",
+      code: "PGT-MATH",
+      department: "Senior Secondary Academics",
+      subjects: ["Mathematics", "Applied Mathematics"],
+      minQualification: "M.Sc Mathematics with B.Ed",
+      minExperience: 3,
+      vacancies: 2,
+      employmentType: "Full Time",
+      description: "Deliver rigorous curriculum for Grades 11-12 with competitive JEE foundation mentoring and analytical problem-solving.",
+      responsibilities: "Conduct classroom instruction, prepare diagnostic worksheets, coordinate Olympiad preparation, and monitor student academic milestones.",
+      requirements: "Master's degree in Mathematics, B.Ed from recognized institution, minimum 3 years teaching senior secondary grades.",
+      deadline: new Date("2026-11-30T23:59:59.000Z"),
+      isActive: true,
+      displayOrder: 1,
+    },
+    {
+      title: "PGT Computer Science & AI",
+      code: "PGT-CS",
+      department: "STEM & Technology",
+      subjects: ["Computer Science", "Artificial Intelligence", "Python"],
+      minQualification: "MCA / M.Tech / M.Sc CS with B.Ed",
+      minExperience: 2,
+      vacancies: 2,
+      employmentType: "Full Time",
+      description: "Mentor secondary and senior secondary students in Python programming, robotics laboratories, algorithmic problem solving, and modern AI tools.",
+      responsibilities: "Lead hands-on labs in coding and robotics, coordinate inter-school hackathons, and maintain curriculum alignment with NEP 2020 technology standards.",
+      requirements: "Proficiency in Python, SQL, web technologies, and modern school robotics kits.",
+      deadline: new Date("2026-11-30T23:59:59.000Z"),
+      isActive: true,
+      displayOrder: 2,
+    },
+    {
+      title: "PGT English",
+      code: "PGT-ENG",
+      department: "Languages & Humanities",
+      subjects: ["English Core", "English Elective"],
+      minQualification: "M.A. English Literature with B.Ed",
+      minExperience: 3,
+      vacancies: 2,
+      employmentType: "Full Time",
+      description: "Inspire literary appreciation, advanced communicative rhetoric, debate moderation, and academic writing distinction.",
+      responsibilities: "Teach Grades 9 to 12, oversee school editorial board and debate society, organize annual elocution and literary festivals.",
+      requirements: "M.A. English with B.Ed, flawless communication and elocution skills.",
+      deadline: new Date("2026-11-30T23:59:59.000Z"),
+      isActive: true,
+      displayOrder: 3,
+    },
+    {
+      title: "TGT Science (Physics / Chemistry / Biology)",
+      code: "TGT-SCI",
+      department: "Middle & Secondary Academics",
+      subjects: ["Physics", "Chemistry", "Biology"],
+      minQualification: "B.Sc / M.Sc in Science with B.Ed (CTET qualified preferred)",
+      minExperience: 2,
+      vacancies: 3,
+      employmentType: "Full Time",
+      description: "Drive inquiry-driven experiential science education for Middle and Secondary school students in modern laboratories.",
+      responsibilities: "Facilitate laboratory practicals, foster scientific temperament, guide Science Exhibition models.",
+      requirements: "B.Sc/M.Sc with B.Ed, CTET or STET qualification is highly advantageous.",
+      deadline: new Date("2026-11-30T23:59:59.000Z"),
+      isActive: true,
+      displayOrder: 4,
+    },
+    {
+      title: "TGT Social Science",
+      code: "TGT-SST",
+      department: "Middle & Secondary Academics",
+      subjects: ["History", "Geography", "Civics", "Economics"],
+      minQualification: "M.A. / B.A. in History/Political Science/Geography with B.Ed",
+      minExperience: 2,
+      vacancies: 2,
+      employmentType: "Full Time",
+      description: "Engage students through historical inquiry, civic responsibility, map skills, and socio-economic awareness.",
+      responsibilities: "Classroom instruction for Grades 6-10, Model United Nations coaching, project-based social learning.",
+      requirements: "B.Ed with relevant degree; passion for holistic social sciences.",
+      deadline: new Date("2026-11-30T23:59:59.000Z"),
+      isActive: true,
+      displayOrder: 5,
+    },
+    {
+      title: "PRT Primary Teacher (All Subjects)",
+      code: "PRT-GEN",
+      department: "Preparatory Stage",
+      subjects: ["English", "Mathematics", "EVS", "Hindi"],
+      minQualification: "Graduate with D.El.Ed / B.Ed / CTET Paper 1",
+      minExperience: 1,
+      vacancies: 4,
+      employmentType: "Full Time",
+      description: "Create an empathetic, vibrant foundational learning environment for Grades 1 to 5.",
+      responsibilities: "Holistic subject instruction, foundational numeracy and literacy development, parent-teacher collaboration.",
+      requirements: "Creative pedagogical techniques, patience, strong communicative clarity.",
+      deadline: new Date("2026-11-30T23:59:59.000Z"),
+      isActive: true,
+      displayOrder: 6,
+    },
+    {
+      title: "Pre-Primary / Nursery Teacher",
+      code: "NTT-FOUND",
+      department: "Foundational Stage",
+      subjects: ["Early Childhood Education", "Phonics", "Sensory Discovery"],
+      minQualification: "NTT / ECCE Certification / Graduate with Montessori Training",
+      minExperience: 1,
+      vacancies: 3,
+      employmentType: "Full Time",
+      description: "Nurture curiosity, sensory exploration, phonics, and emotional resilience in early childhood learners.",
+      responsibilities: "Design play-based discovery activities, storytelling, rhymes, rhythm, gross motor skill guidance.",
+      requirements: "ECCE or NTT certification, warm child-centric demeanor.",
+      deadline: new Date("2026-11-30T23:59:59.000Z"),
+      isActive: true,
+      displayOrder: 7,
+    },
+    {
+      title: "Physical Education Teacher (PET / Sports Coach)",
+      code: "PET-SPORTS",
+      department: "Sports & Physical Education",
+      subjects: ["Physical Fitness", "Athletics", "Football", "Cricket", "Yoga"],
+      minQualification: "B.P.Ed / M.P.Ed",
+      minExperience: 2,
+      vacancies: 2,
+      employmentType: "Full Time",
+      description: "Coach school athletic teams, conduct morning drill and yoga sessions, coordinate intramural tournaments.",
+      responsibilities: "Maintain sports field safety, organize annual sports day, mentor team values and sportsmanship.",
+      requirements: "B.P.Ed with state/national level sports experience preferred.",
+      deadline: new Date("2026-11-30T23:59:59.000Z"),
+      isActive: true,
+      displayOrder: 8,
+    },
+    {
+      title: "School Counsellor & Wellness Coach",
+      code: "COUNS-WELL",
+      department: "Student Well-Being",
+      subjects: ["Child Psychology", "Career Guidance", "Behavioral Counseling"],
+      minQualification: "M.A. / M.Sc in Psychology with Guidance & Counseling Diploma",
+      minExperience: 2,
+      vacancies: 1,
+      employmentType: "Full Time",
+      description: "Champion emotional well-being, provide confidential guidance, and conduct student mental health workshops.",
+      responsibilities: "One-on-one student counseling, career guidance for secondary students, teacher sensitization sessions.",
+      requirements: "Master's in Psychology, proven experience in an institutional school setting.",
+      deadline: new Date("2026-11-30T23:59:59.000Z"),
+      isActive: true,
+      displayOrder: 9,
+    },
+    {
+      title: "Special Educator",
+      code: "SPEC-EDU",
+      department: "Inclusive Education",
+      subjects: ["Inclusive Learning", "Remedial Education"],
+      minQualification: "B.Ed in Special Education / RCI Registration",
+      minExperience: 1,
+      vacancies: 1,
+      employmentType: "Full Time",
+      description: "Support diverse learners with Individualized Education Plans (IEPs) and differentiated classroom strategies.",
+      responsibilities: "Develop IEPs, collaborate with mainstream teachers, monitor learning progress.",
+      requirements: "RCI recognized degree in Special Education.",
+      deadline: new Date("2026-11-30T23:59:59.000Z"),
+      isActive: true,
+      displayOrder: 10,
+    },
+  ];
+
+  for (const pos of samplePositions) {
+    const existing = await prisma.jobPosition.findFirst({
+      where: { code: pos.code },
+    });
+
+    if (existing) {
+      await prisma.jobPosition.update({
+        where: { id: existing.id },
+        data: pos,
+      });
+    } else {
+      await prisma.jobPosition.create({
+        data: pos,
+      });
+    }
+  }
+  console.log(`✅ ${samplePositions.length} Job Positions seeded.`);
+
+  console.log("🎉 All Phase 2 & Recruitment foundation content seeded successfully!");
 }
 
 main()

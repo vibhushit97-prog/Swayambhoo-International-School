@@ -8,12 +8,12 @@ import { BookOpen, Sparkles, Compass, ArrowRight } from "lucide-react";
 
 export function LibrarySection() {
   return (
-    <section className="py-20 lg:py-28 bg-[#FDFBF7] border-b border-[#E2DBD0]">
+    <section className="py-20 lg:py-28 bg-white border-b border-[#DEDCCF]">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Visual */}
           <div className="lg:col-span-7 order-2 lg:order-1">
-            <div className="relative aspect-16/10 w-full border-2 border-[#C5A059] shadow-xl overflow-hidden group">
+            <div className="relative aspect-16/10 w-full border-2 border-[#DEDCCF] shadow-xl overflow-hidden group hover:border-[#B88A2A] transition-colors">
               <Image
                 src={siteConfig.images.library.main}
                 alt="Swayambhoo Sensory Library Sanctuary - Proposed Concept"
@@ -21,18 +21,18 @@ export function LibrarySection() {
                 sizes="(max-width: 1024px) 100vw, 60vw"
                 className="object-cover group-hover:scale-103 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#083526]/80 via-transparent to-transparent" />
               
-              <div className="absolute bottom-4 left-4 right-4 p-4 bg-[#0E241B]/90 backdrop-blur-xs border border-[#C5A059]/40 text-white flex items-center justify-between">
+              <div className="absolute bottom-4 left-4 right-4 p-4 bg-[#083526]/95 backdrop-blur-xs border border-[#B88A2A]/40 text-white flex items-center justify-between">
                 <div>
-                  <p className="text-xs uppercase tracking-widest text-[#C5A059] font-semibold">
+                  <p className="text-xs uppercase tracking-widest text-[#D4B15A] font-semibold">
                     Knowledge Sanctuary
                   </p>
-                  <p className="font-serif text-sm font-bold text-[#FDFBF7]">
+                  <p className="font-serif text-sm font-bold text-[#F7F3E8]">
                     Curved Wood Bookshelves, Reading Pods & Courtyard Glazing
                   </p>
                 </div>
-                <span className="text-[10px] uppercase tracking-wider text-white/60 bg-white/10 px-2 py-1 border border-white/20">
+                <span className="text-[10px] uppercase tracking-wider text-[#F7F3E8]/70 bg-white/10 px-2 py-1 border border-white/20">
                   Concept
                 </span>
               </div>
@@ -48,7 +48,7 @@ export function LibrarySection() {
               description="A serene haven where the tactile beauty of books meets natural daylight and quiet reading alcoves."
             />
 
-            <div className="space-y-4 text-sm sm:text-base text-[#181C20]/80 leading-relaxed font-sans">
+            <div className="space-y-4 text-sm sm:text-base text-[#26332E] leading-relaxed font-sans">
               <p>
                 Reading at Swayambhoo is not an obligation—it is a cherished daily practice. Our library features stepped amphitheater seating upholstered with soft earth tones and cozy reading pods integrated directly into curved natural wood bookshelves.
               </p>
@@ -59,20 +59,20 @@ export function LibrarySection() {
 
             <div className="space-y-3 pt-2">
               <div className="flex items-center gap-3">
-                <BookOpen className="w-5 h-5 text-[#C5A059] shrink-0" />
-                <span className="text-sm font-medium text-[#14342B]">
+                <BookOpen className="w-5 h-5 text-[#B88A2A] shrink-0" />
+                <span className="text-sm font-medium text-[#0F4735]">
                   10,000+ Curated Volumes & Research Journals
                 </span>
               </div>
               <div className="flex items-center gap-3">
-                <Sparkles className="w-5 h-5 text-[#C5A059] shrink-0" />
-                <span className="text-sm font-medium text-[#14342B]">
+                <Sparkles className="w-5 h-5 text-[#B88A2A] shrink-0" />
+                <span className="text-sm font-medium text-[#0F4735]">
                   Private In-Shelf Reading Nooks for Deep Immersion
                 </span>
               </div>
               <div className="flex items-center gap-3">
-                <Compass className="w-5 h-5 text-[#C5A059] shrink-0" />
-                <span className="text-sm font-medium text-[#14342B]">
+                <Compass className="w-5 h-5 text-[#B88A2A] shrink-0" />
+                <span className="text-sm font-medium text-[#0F4735]">
                   Stepped Soft Amphitheater for Storytelling & Seminars
                 </span>
               </div>

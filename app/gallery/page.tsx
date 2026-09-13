@@ -143,22 +143,22 @@ export default async function GalleryPage() {
   const items = dynamicItems.length > 0 ? dynamicItems : STATIC_GALLERY_ITEMS;
 
   return (
-    <div className="bg-[#FDFBF7]">
+    <div className="bg-[#F7F3E8]">
       {/* Hero Header */}
-      <section className="bg-[#081611] text-[#FDFBF7] py-20 lg:py-24 relative overflow-hidden border-b-2 border-[#C5A059]">
+      <section className="bg-[#083526] text-[#F7F3E8] py-20 lg:py-24 relative overflow-hidden border-b-2 border-[#B88A2A]">
         <Container className="relative z-10">
           <div className="max-w-3xl space-y-4">
-            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#C5A059]">
+            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#D4B15A] font-bold">
               <Link href="/" className="hover:underline">Home</Link>
               <span>/</span>
               <span>Gallery</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-[#FFFFFF]">
               Visual Journey & Campus Gallery
             </h1>
 
-            <p className="text-base sm:text-lg text-[#E8DFC8]/90 font-sans leading-relaxed">
+            <p className="text-base sm:text-lg text-[#F7F3E8] font-sans leading-relaxed">
               Explore our architectural renderings, smart learning studios, STEM laboratories, athletic arenas, and official uniform specifications.
             </p>
           </div>
@@ -166,7 +166,7 @@ export default async function GalleryPage() {
       </section>
 
       {/* Gallery Showcase Section */}
-      <section className="py-20">
+      <section className="py-20 bg-white border-b border-[#DEDCCF]">
         <Container>
           <SectionHeading
             badge="Curated Visuals"
@@ -177,10 +177,10 @@ export default async function GalleryPage() {
           <GalleryGrid initialItems={items} />
 
           {/* Conceptual Transparency Banner */}
-          <div className="mt-16 p-5 bg-white border border-[#E2DBD0] flex items-center gap-3 max-w-2xl mx-auto">
-            <ShieldCheck className="w-5 h-5 text-[#C5A059] shrink-0" />
-            <p className="text-xs text-[#181C20]/75 leading-relaxed font-sans">
-              <strong className="text-[#14342B]">Visual Transparency Note:</strong> Architectural renderings display the planned concept design for Swayambhoo International School. Uniform specifications represent officially ratified attire.
+          <div className="mt-16 p-5 bg-[#FBF9F2] border border-[#DEDCCF] rounded-2xl flex items-center gap-3 max-w-2xl mx-auto shadow-[0_4px_20px_rgba(15,71,53,0.03)]">
+            <ShieldCheck className="w-5 h-5 text-[#B88A2A] shrink-0" />
+            <p className="text-xs text-[#26332E] leading-relaxed font-sans">
+              <strong className="text-[#0F4735]">Visual Transparency Note:</strong> Architectural renderings display the planned concept design for Swayambhoo International School. Uniform specifications represent officially ratified attire.
             </p>
           </div>
         </Container>
